@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1320" viewBox="0 0 1400 1320" role="img" aria-labelledby="title description" style="max-width:100%;height:auto">
+  <title id="title">Alur pengajuan kerja sama MoU</title>
+  <desc id="desc">Proses pengajuan MoU konsumen, pemeriksaan dan pembaruan status admin, serta tindak lanjut dokumen hasil.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#75879a"/></marker>
+    <style>
+      text{font-family:Arial,sans-serif;fill:#172b4d}.title{font-size:32px;font-weight:700}.subtitle{font-size:16px;fill:#64748b}.label{font-size:16px;font-weight:700}.small{font-size:14px;fill:#52657a}.edge{fill:none;stroke:#75879a;stroke-width:2.5;marker-end:url(#arrow)}.edge-soft{fill:none;stroke:#94a3b8;stroke-width:2.2;marker-end:url(#arrow)}.card{fill:#fff;stroke:#dbe4ee;stroke-width:1.8}.system{fill:#ecfdf5;stroke:#6bb99a;stroke-width:2}.admin{fill:#eef2ff;stroke:#8da2df;stroke-width:2}.decision{fill:#fff7e8;stroke:#e6b45c;stroke-width:2}.end{fill:#0f766e;stroke:#0b5c56;stroke-width:2}.end-text{fill:#fff;font-size:16px;font-weight:700}.branch{font-size:14px;font-weight:700;fill:#475569}.panel{fill:#f7f9fc;stroke:#e2e8f0;stroke-width:1.5}.tag{font-size:12px;font-weight:700;fill:#0f766e}
+    </style>
+  </defs>
+  <rect width="1400" height="1320" fill="#f7f9fc"/>
+  <text class="title" x="700" y="56" text-anchor="middle">PENGAJUAN KERJA SAMA MoU</text>
+  <text class="subtitle" x="700" y="86" text-anchor="middle">PT. Innes Arsen Wisata · Alur pemohon, sistem, dan admin</text>
+  <rect class="panel" x="44" y="116" width="1312" height="1150" rx="24"/>
+
+  <ellipse class="end" cx="700" cy="170" rx="88" ry="28"/>
+  <text class="end-text" x="700" y="176" text-anchor="middle">Mulai</text>
+  <path class="edge" d="M700 198V230"/>
+
+  <rect class="card" x="455" y="234" width="490" height="80" rx="14"/>
+  <text class="label" x="700" y="267" text-anchor="middle">Pemohon masuk atau mendaftar</text>
+  <text class="small" x="700" y="292" text-anchor="middle">Pengajuan memerlukan akun konsumen</text>
+  <path class="edge" d="M700 314V346"/>
+
+  <rect class="card" x="420" y="350" width="560" height="110" rx="14"/>
+  <text class="label" x="700" y="383" text-anchor="middle">Isi dan kirim formulir kerja sama</text>
+  <text class="small" x="700" y="410" text-anchor="middle">Nama organisasi, narahubung, email, telepon, deskripsi</text>
+  <text class="small" x="700" y="435" text-anchor="middle">Lampiran PDF/DOC/DOCX bersifat opsional</text>
+  <path class="edge" d="M700 460V492"/>
+
+  <rect class="system" x="455" y="496" width="490" height="84" rx="14"/>
+  <text class="label" x="700" y="530" text-anchor="middle">Sistem menyimpan pengajuan</text>
+  <text class="small" x="700" y="557" text-anchor="middle">Status awal: submitted</text>
+  <path class="edge" d="M700 580V612"/>
+
+  <rect class="admin" x="455" y="616" width="490" height="84" rx="14"/>
+  <text class="label" x="700" y="650" text-anchor="middle">Admin meninjau dan memperbarui pengajuan</text>
+  <text class="small" x="700" y="677" text-anchor="middle">Catatan dan dokumen balasan dapat ditambahkan</text>
+  <path class="edge" d="M700 700V730"/>
+
+  <polygon class="decision" points="700,734 840,792 700,850 560,792"/>
+  <text class="label" x="700" y="788" text-anchor="middle">Status hasil review?</text>
+
+  <path class="edge" d="M560 792H260V888"/>
+  <text class="branch" x="410" y="778" text-anchor="middle">under_review</text>
+  <rect class="admin" x="80" y="892" width="360" height="92" rx="14"/>
+  <text class="label" x="260" y="928" text-anchor="middle">Masih dalam peninjauan</text>
+  <text class="small" x="260" y="957" text-anchor="middle">Pemohon melihat status dan catatan</text>
+  <path class="edge-soft" d="M80 938H56V658H455"/>
+  <text class="tag" x="68" y="805" text-anchor="middle" transform="rotate(-90 68 805)">ADMIN MENINJAU KEMBALI</text>
+
+  <path class="edge" d="M700 850V888"/>
+  <text class="branch" x="718" y="875">rejected</text>
+  <rect class="card" x="520" y="892" width="360" height="92" rx="14"/>
+  <text class="label" x="700" y="928" text-anchor="middle">Pengajuan ditolak</text>
+  <text class="small" x="700" y="957" text-anchor="middle">Pemohon dapat membaca catatan admin</text>
+  <path class="edge" d="M700 984V1030"/>
+  <ellipse class="end" cx="700" cy="1058" rx="78" ry="26"/>
+  <text class="end-text" x="700" y="1064" text-anchor="middle">Selesai</text>
+
+  <path class="edge" d="M840 792H1140V888"/>
+  <text class="branch" x="990" y="778" text-anchor="middle">approved</text>
+  <rect class="system" x="960" y="892" width="360" height="92" rx="14"/>
+  <text class="label" x="1140" y="928" text-anchor="middle">Pengajuan disetujui</text>
+  <text class="small" x="1140" y="957" text-anchor="middle">Dokumen hasil dapat dilampirkan admin</text>
+  <path class="edge" d="M1140 984V1020"/>
+  <rect class="card" x="960" y="1024" width="360" height="86" rx="14"/>
+  <text class="label" x="1140" y="1058" text-anchor="middle">Pemohon melihat hasil</text>
+  <text class="small" x="1140" y="1085" text-anchor="middle">Unduh dokumen bila tersedia</text>
+  <path class="edge" d="M1140 1110V1140"/>
+  <ellipse class="end" cx="1140" cy="1168" rx="78" ry="26"/>
+  <text class="end-text" x="1140" y="1174" text-anchor="middle">Selesai</text>
+
+  <rect x="90" y="1100" width="700" height="92" rx="14" fill="#edf3f8" stroke="#d8e2ec"/>
+  <text class="tag" x="120" y="1132">STATUS MoU</text>
+  <text class="small" x="120" y="1160">submitted → under_review / approved / rejected</text>
+  <text class="small" x="120" y="1182">Status dapat diperbarui admin selama pengajuan ditangani.</text>
+</svg>

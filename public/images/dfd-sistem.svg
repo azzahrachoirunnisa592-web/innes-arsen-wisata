@@ -1,0 +1,181 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1640" viewBox="0 0 1400 1640" role="img" aria-labelledby="title description" style="max-width:100%;height:auto">
+  <title id="title">DFD sistem informasi PT. Innes Arsen Wisata</title>
+  <desc id="description">Diagram konteks DFD level 0 dan DFD level 1 yang menunjukkan aliran data pengunjung, konsumen, admin, proses aplikasi, dan penyimpanan data.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#64748b"/></marker>
+    <style>
+      text{font-family:Arial,sans-serif;fill:#172b4d}.title{font-size:32px;font-weight:700}.subtitle{font-size:16px;fill:#64748b}.section{font-size:17px;font-weight:700;letter-spacing:1px;fill:#0f766e}.label{font-size:15px;font-weight:700}.small{font-size:13px;fill:#52657a}.tiny{font-size:12px;fill:#52657a}.entity{fill:#fff;stroke:#8da2b8;stroke-width:2}.process{fill:#eaf3ff;stroke:#6085c2;stroke-width:2}.process-teal{fill:#e9f8f3;stroke:#56a58e;stroke-width:2}.store{fill:#fff;stroke:#7890a6;stroke-width:2}.flow{fill:none;stroke:#64748b;stroke-width:2;marker-end:url(#arrow)}.flow-dash{fill:none;stroke:#94a3b8;stroke-width:2;stroke-dasharray:8 7;marker-end:url(#arrow)}.panel{fill:#f7f9fc;stroke:#e2e8f0;stroke-width:1.5}.card{fill:#fff;stroke:#dbe4ee;stroke-width:1.4}.tag{font-size:12px;font-weight:700;fill:#0f766e}
+    </style>
+  </defs>
+  <rect width="1400" height="1640" fill="#f7f9fc"/>
+  <text class="title" x="700" y="52" text-anchor="middle">DATA FLOW DIAGRAM (DFD)</text>
+  <text class="subtitle" x="700" y="80" text-anchor="middle">Sistem Informasi PT. Innes Arsen Wisata · Mengacu pada fitur aplikasi terbaru</text>
+
+  <rect class="panel" x="35" y="108" width="1330" height="380" rx="20"/>
+  <text class="section" x="65" y="145">DFD LEVEL 0 · DIAGRAM KONTEKS</text>
+
+  <rect class="entity" x="82" y="218" width="235" height="96" rx="14"/>
+  <text class="label" x="199" y="257" text-anchor="middle">Pengunjung /</text>
+  <text class="label" x="199" y="281" text-anchor="middle">Konsumen</text>
+  <ellipse class="process-teal" cx="700" cy="266" rx="205" ry="78"/>
+  <text class="label" x="700" y="258" text-anchor="middle">SISTEM INFORMASI</text>
+  <text class="label" x="700" y="283" text-anchor="middle">TOUR &amp; TRAVEL</text>
+  <rect class="entity" x="1083" y="218" width="235" height="96" rx="14"/>
+  <text class="label" x="1200" y="257" text-anchor="middle">Admin</text>
+  <text class="small" x="1200" y="281" text-anchor="middle">Pengelola aplikasi</text>
+
+  <path class="flow" d="M317 238H495"/>
+  <text class="tiny" x="406" y="226" text-anchor="middle">permintaan layanan</text>
+  <path class="flow" d="M495 294H317"/>
+  <text class="tiny" x="406" y="316" text-anchor="middle">informasi &amp; status</text>
+  <path class="flow" d="M1083 238H905"/>
+  <text class="tiny" x="994" y="226" text-anchor="middle">data &amp; keputusan admin</text>
+  <path class="flow" d="M905 294H1083"/>
+  <text class="tiny" x="994" y="316" text-anchor="middle">data transaksi &amp; laporan</text>
+
+  <rect class="entity" x="82" y="372" width="235" height="62" rx="12"/>
+  <text class="label" x="199" y="398" text-anchor="middle">DANA / Bank</text>
+  <text class="tiny" x="199" y="419" text-anchor="middle">di luar aplikasi</text>
+  <path class="flow-dash" d="M199 314V372"/>
+  <rect x="355" y="366" width="963" height="76" rx="12" fill="#fff7e8" stroke="#e6b45c" stroke-width="1.4"/>
+  <text class="tag" x="835" y="394" text-anchor="middle">TIDAK ADA INTEGRASI PEMBAYARAN OTOMATIS</text>
+  <text class="small" x="835" y="421" text-anchor="middle">Konsumen transfer melalui DANA/bank; admin mencocokkan dana dan bukti secara manual.</text>
+
+  <rect class="panel" x="35" y="516" width="1330" height="1088" rx="20"/>
+  <text class="section" x="65" y="553">DFD LEVEL 1 · PROSES DAN PENYIMPANAN DATA</text>
+  <text class="small" x="65" y="579">Setiap proses menerima data dari aktor, mengolahnya, lalu membaca atau menyimpan data aplikasi.</text>
+
+  <g transform="translate(60 610)">
+    <rect class="card" width="620" height="300" rx="16"/>
+    <text class="tag" x="22" y="30">01 · INFORMASI PUBLIK</text>
+    <rect class="entity" x="18" y="92" width="140" height="88" rx="12"/>
+    <text class="label" x="88" y="130" text-anchor="middle">Pengunjung</text>
+    <text class="tiny" x="88" y="153" text-anchor="middle">permintaan halaman</text>
+    <ellipse class="process" cx="310" cy="136" rx="100" ry="67"/>
+    <text class="label" x="310" y="126" text-anchor="middle">1.0 Sajikan</text>
+    <text class="label" x="310" y="148" text-anchor="middle">informasi</text>
+    <text class="tiny" x="310" y="169" text-anchor="middle">katalog &amp; konten</text>
+    <path class="store" d="M455 94H600V180H455Z"/>
+    <path class="store" d="M455 94V108H600"/>
+    <text class="label" x="527" y="137" text-anchor="middle">D1 · Data publik</text>
+    <text class="tiny" x="527" y="159" text-anchor="middle">paket, wisata, profil</text>
+    <path class="flow" d="M158 120H207"/>
+    <text class="tiny" x="182" y="108" text-anchor="middle">halaman</text>
+    <path class="flow" d="M455 150H410"/>
+    <text class="tiny" x="433" y="139" text-anchor="middle">baca</text>
+    <text class="small" x="22" y="225">Hasil: halaman destinasi, paket, profil, galeri, dan artikel.</text>
+    <text class="tiny" x="22" y="252">Artikel editorial bersumber dari konfigurasi aplikasi.</text>
+  </g>
+
+  <g transform="translate(720 610)">
+    <rect class="card" width="620" height="300" rx="16"/>
+    <text class="tag" x="22" y="30">02 · AKUN &amp; AUTENTIKASI</text>
+    <rect class="entity" x="18" y="92" width="140" height="88" rx="12"/>
+    <text class="label" x="88" y="130" text-anchor="middle">Pengunjung</text>
+    <text class="tiny" x="88" y="153" text-anchor="middle">daftar / masuk</text>
+    <ellipse class="process" cx="310" cy="136" rx="100" ry="67"/>
+    <text class="label" x="310" y="126" text-anchor="middle">2.0 Kelola</text>
+    <text class="label" x="310" y="148" text-anchor="middle">akun</text>
+    <text class="tiny" x="310" y="169" text-anchor="middle">autentikasi</text>
+    <path class="store" d="M455 94H600V180H455Z"/>
+    <path class="store" d="M455 94V108H600"/>
+    <text class="label" x="527" y="137" text-anchor="middle">D2 · Pengguna</text>
+    <text class="tiny" x="527" y="159" text-anchor="middle">users, role, sesi</text>
+    <path class="flow" d="M158 120H207"/>
+    <text class="tiny" x="182" y="108" text-anchor="middle">kredensial</text>
+    <path class="flow" d="M455 150H410"/>
+    <text class="tiny" x="433" y="139" text-anchor="middle">baca / simpan</text>
+    <text class="small" x="22" y="225">Pendaftaran publik membuat akun dengan role customer.</text>
+    <text class="tiny" x="22" y="252">Pengelolaan akun admin tidak tersedia sebagai CRUD panel.</text>
+  </g>
+
+  <g transform="translate(60 930)">
+    <rect class="card" width="620" height="300" rx="16"/>
+    <text class="tag" x="22" y="30">03 · PEMESANAN &amp; NEGOSIASI</text>
+    <rect class="entity" x="18" y="92" width="140" height="88" rx="12"/>
+    <text class="label" x="88" y="127" text-anchor="middle">Konsumen /</text>
+    <text class="label" x="88" y="149" text-anchor="middle">Admin</text>
+    <ellipse class="process-teal" cx="310" cy="136" rx="100" ry="67"/>
+    <text class="label" x="310" y="126" text-anchor="middle">3.0 Kelola</text>
+    <text class="label" x="310" y="148" text-anchor="middle">pemesanan</text>
+    <text class="tiny" x="310" y="169" text-anchor="middle">buat / negosiasi</text>
+    <path class="store" d="M455 94H600V180H455Z"/>
+    <path class="store" d="M455 94V108H600"/>
+    <text class="label" x="527" y="137" text-anchor="middle">D3 · Booking</text>
+    <text class="tiny" x="527" y="159" text-anchor="middle">booking &amp; invoice</text>
+    <path class="flow" d="M158 120H207"/>
+    <text class="tiny" x="182" y="108" text-anchor="middle">pesanan / keputusan</text>
+    <path class="flow" d="M455 150H410"/>
+    <text class="tiny" x="433" y="139" text-anchor="middle">baca / simpan</text>
+    <text class="small" x="22" y="225">Hasil: booking, harga akhir, status, dan invoice.</text>
+    <text class="tiny" x="22" y="252">Pemesanan memakai paket tayang; negosiasi dilakukan admin.</text>
+  </g>
+
+  <g transform="translate(720 930)">
+    <rect class="card" width="620" height="300" rx="16"/>
+    <text class="tag" x="22" y="30">04 · PEMBAYARAN &amp; KUITANSI</text>
+    <rect class="entity" x="18" y="92" width="140" height="88" rx="12"/>
+    <text class="label" x="88" y="127" text-anchor="middle">Konsumen /</text>
+    <text class="label" x="88" y="149" text-anchor="middle">Admin</text>
+    <ellipse class="process-teal" cx="310" cy="136" rx="100" ry="67"/>
+    <text class="label" x="310" y="126" text-anchor="middle">4.0 Kelola</text>
+    <text class="label" x="310" y="148" text-anchor="middle">pembayaran</text>
+    <text class="tiny" x="310" y="169" text-anchor="middle">bukti / review</text>
+    <path class="store" d="M455 94H600V180H455Z"/>
+    <path class="store" d="M455 94V108H600"/>
+    <text class="label" x="527" y="137" text-anchor="middle">D4 · Pembayaran</text>
+    <text class="tiny" x="527" y="159" text-anchor="middle">payments &amp; metode</text>
+    <path class="flow" d="M158 120H207"/>
+    <text class="tiny" x="182" y="108" text-anchor="middle">bukti / keputusan</text>
+    <path class="flow" d="M455 150H410"/>
+    <text class="tiny" x="433" y="139" text-anchor="middle">baca / simpan</text>
+    <text class="small" x="22" y="225">Hasil: status pembayaran, invoice lunas, kuitansi.</text>
+    <text class="tiny" x="22" y="252">Invoice terkait dibaca/diperbarui; review bukti manual.</text>
+  </g>
+
+  <g transform="translate(60 1250)">
+    <rect class="card" width="620" height="300" rx="16"/>
+    <text class="tag" x="22" y="30">05 · PENGAJUAN MoU</text>
+    <rect class="entity" x="18" y="92" width="140" height="88" rx="12"/>
+    <text class="label" x="88" y="127" text-anchor="middle">Konsumen /</text>
+    <text class="label" x="88" y="149" text-anchor="middle">Admin</text>
+    <ellipse class="process" cx="310" cy="136" rx="100" ry="67"/>
+    <text class="label" x="310" y="126" text-anchor="middle">5.0 Kelola</text>
+    <text class="label" x="310" y="148" text-anchor="middle">pengajuan MoU</text>
+    <text class="tiny" x="310" y="169" text-anchor="middle">kirim / tinjau</text>
+    <path class="store" d="M455 94H600V180H455Z"/>
+    <path class="store" d="M455 94V108H600"/>
+    <text class="label" x="527" y="137" text-anchor="middle">D5 · MoU</text>
+    <text class="tiny" x="527" y="159" text-anchor="middle">status &amp; dokumen</text>
+    <path class="flow" d="M158 120H207"/>
+    <text class="tiny" x="182" y="108" text-anchor="middle">formulir / review</text>
+    <path class="flow" d="M455 150H410"/>
+    <text class="tiny" x="433" y="139" text-anchor="middle">baca / simpan</text>
+    <text class="small" x="22" y="225">Hasil: status, catatan, dokumen pemohon/balasan.</text>
+    <text class="tiny" x="22" y="252">Dokumen dapat dilihat/diunduh sesuai hak akses.</text>
+  </g>
+
+  <g transform="translate(720 1250)">
+    <rect class="card" width="620" height="300" rx="16"/>
+    <text class="tag" x="22" y="30">06 · DATA MASTER &amp; DASHBOARD</text>
+    <rect class="entity" x="18" y="92" width="140" height="88" rx="12"/>
+    <text class="label" x="88" y="130" text-anchor="middle">Admin</text>
+    <text class="tiny" x="88" y="153" text-anchor="middle">ubah / pantau</text>
+    <ellipse class="process" cx="310" cy="136" rx="100" ry="67"/>
+    <text class="label" x="310" y="126" text-anchor="middle">6.0 Kelola data</text>
+    <text class="label" x="310" y="148" text-anchor="middle">dan dashboard</text>
+    <text class="tiny" x="310" y="169" text-anchor="middle">pengaturan / ringkasan</text>
+    <path class="store" d="M455 94H600V180H455Z"/>
+    <path class="store" d="M455 94V108H600"/>
+    <text class="label" x="527" y="137" text-anchor="middle">D1–D5</text>
+    <text class="tiny" x="527" y="159" text-anchor="middle">data aplikasi</text>
+    <path class="flow" d="M158 120H207"/>
+    <text class="tiny" x="182" y="108" text-anchor="middle">perintah admin</text>
+    <path class="flow" d="M455 150H410"/>
+    <text class="tiny" x="433" y="139" text-anchor="middle">baca / simpan</text>
+    <text class="small" x="22" y="225">Admin mengelola destinasi, paket, profil, galeri, tim,</text>
+    <text class="small" x="22" y="247">metode pembayaran, pelanggan, dan ringkasan operasional.</text>
+  </g>
+
+  <text class="tiny" x="700" y="1580" text-anchor="middle">Data konten editorial disimpan pada konfigurasi aplikasi, bukan tabel editorial khusus.</text>
+</svg>

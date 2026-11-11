@@ -1,0 +1,178 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1900" height="1450" viewBox="0 0 1900 1450" role="img" aria-labelledby="title description" style="max-width:100%;height:auto">
+  <title id="title">ERD sistem informasi PT. Innes Arsen Wisata</title>
+  <desc id="description">Diagram relasi database berdasarkan migrasi aplikasi: pengguna, destinasi, paket, pemesanan, invoice, pembayaran, pengajuan MoU, serta data profil perusahaan.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#75879a"/></marker>
+    <style>
+      text{font-family:Arial,sans-serif;fill:#172b4d}.title{font-size:34px;font-weight:700}.subtitle{font-size:16px;fill:#64748b}.section-title{font-size:15px;font-weight:700;letter-spacing:1.5px;fill:#0f766e}.card{fill:#fff;stroke:#dbe4ee;stroke-width:1.5}.head{fill:#0f766e}.head-blue{fill:#345995}.head-purple{fill:#6956a5}.head-amber{fill:#b66a18}.head-gray{fill:#526276}.head-text{font-size:17px;font-weight:700;fill:#fff}.field{font-size:14px;fill:#334155}.pk{font-weight:700;fill:#0f766e}.fk{font-weight:700;fill:#345995}.meta{font-size:12px;fill:#64748b}.rel{font-size:13px;font-weight:700;fill:#475569}.line{fill:none;stroke:#75879a;stroke-width:2.2;marker-end:url(#arrow)}.panel{fill:#f4f8fb;stroke:#e2e8f0;stroke-width:1.3}
+    </style>
+  </defs>
+  <rect width="1900" height="1450" fill="#f7f9fc"/>
+  <text class="title" x="950" y="58" text-anchor="middle">ERD SISTEM INFORMASI TOUR &amp; TRAVEL</text>
+  <text class="subtitle" x="950" y="88" text-anchor="middle">PT. Innes Arsen Wisata · Struktur tabel dan relasi mengikuti migrasi aplikasi</text>
+
+  <rect class="panel" x="40" y="120" width="1820" height="790" rx="22"/>
+  <text class="section-title" x="72" y="156">ALUR TRANSAKSI</text>
+  <rect class="panel" x="40" y="940" width="1820" height="370" rx="22"/>
+  <text class="section-title" x="72" y="976">DATA KONTEN &amp; PROFIL PERUSAHAAN</text>
+
+  <path class="line" d="M430 270H510"/>
+  <text class="rel" x="470" y="256" text-anchor="middle">1 : N</text>
+  <path class="line" d="M850 270H930"/>
+  <text class="rel" x="890" y="256" text-anchor="middle">1 : N</text>
+  <path class="line" d="M260 420V505"/>
+  <text class="rel" x="278" y="468">1 : N</text>
+  <path class="line" d="M430 310H470V650H510"/>
+  <text class="rel" x="475" y="490">1 : N</text>
+  <path class="line" d="M1110 420V470H710V505"/>
+  <text class="rel" x="904" y="457" text-anchor="middle">1 : N</text>
+  <path class="line" d="M900 645H980"/>
+  <text class="rel" x="940" y="631" text-anchor="middle">1 : 0..1</text>
+  <path class="line" d="M1380 645H1460"/>
+  <text class="rel" x="1420" y="631" text-anchor="middle">1 : N</text>
+  <path class="line" d="M1650 420V505"/>
+  <text class="rel" x="1668" y="468">1 : N</text>
+
+  <g transform="translate(80 190)">
+    <rect class="card" width="350" height="230" rx="14"/>
+    <path class="head" d="M14 0H336Q350 0 350 14V48H0V14Q0 0 14 0Z"/>
+    <text class="head-text" x="20" y="31">users</text>
+    <text class="field pk" x="20" y="78">PK  id</text>
+    <text class="field" x="20" y="103">name · email (unik)</text>
+    <text class="field" x="20" y="128">password · role · phone</text>
+    <text class="field" x="20" y="153">email_verified_at</text>
+    <text class="field" x="20" y="178">remember_token</text>
+    <text class="field" x="20" y="203">created_at · updated_at</text>
+  </g>
+
+  <g transform="translate(510 190)">
+    <rect class="card" width="340" height="230" rx="14"/>
+    <path class="head" d="M14 0H326Q340 0 340 14V48H0V14Q0 0 14 0Z"/>
+    <text class="head-text" x="20" y="31">wisatas</text>
+    <text class="field pk" x="20" y="78">PK  id</text>
+    <text class="field" x="20" y="103">name · slug (unik)</text>
+    <text class="field" x="20" y="128">province · description</text>
+    <text class="field" x="20" y="153">image_path</text>
+    <text class="field" x="20" y="178">created_at · updated_at</text>
+  </g>
+
+  <g transform="translate(930 190)">
+    <rect class="card" width="360" height="230" rx="14"/>
+    <path class="head" d="M14 0H346Q360 0 360 14V48H0V14Q0 0 14 0Z"/>
+    <text class="head-text" x="20" y="31">pakets</text>
+    <text class="field pk" x="20" y="78">PK  id</text>
+    <text class="field fk" x="20" y="103">FK  wisata_id → wisatas.id</text>
+    <text class="field" x="20" y="128">title · slug (unik) · category</text>
+    <text class="field" x="20" y="153">duration_days · duration_nights</text>
+    <text class="field" x="20" y="178">price · quota · published</text>
+    <text class="field" x="20" y="203">description · includes · excludes</text>
+  </g>
+
+  <g transform="translate(1460 190)">
+    <rect class="card" width="340" height="230" rx="14"/>
+    <path class="head-amber" d="M14 0H326Q340 0 340 14V48H0V14Q0 0 14 0Z"/>
+    <text class="head-text" x="20" y="31">payment_methods</text>
+    <text class="field pk" x="20" y="78">PK  id</text>
+    <text class="field" x="20" y="103">name · account_name</text>
+    <text class="field" x="20" y="128">account_number</text>
+    <text class="field" x="20" y="153">instructions · active</text>
+    <text class="field" x="20" y="178">created_at · updated_at</text>
+  </g>
+
+  <g transform="translate(80 505)">
+    <rect class="card" width="350" height="260" rx="14"/>
+    <path class="head-purple" d="M14 0H336Q350 0 350 14V48H0V14Q0 0 14 0Z"/>
+    <text class="head-text" x="20" y="31">mous</text>
+    <text class="field pk" x="20" y="78">PK  id</text>
+    <text class="field fk" x="20" y="103">FK  user_id → users.id</text>
+    <text class="field" x="20" y="128">organization_name · contact_name</text>
+    <text class="field" x="20" y="153">email · phone · description</text>
+    <text class="field" x="20" y="178">status · document_path</text>
+    <text class="field" x="20" y="203">admin_document_path</text>
+    <text class="field" x="20" y="228">admin_notes · timestamps</text>
+  </g>
+
+  <g transform="translate(510 505)">
+    <rect class="card" width="390" height="280" rx="14"/>
+    <path class="head-blue" d="M14 0H376Q390 0 390 14V48H0V14Q0 0 14 0Z"/>
+    <text class="head-text" x="20" y="31">bookings</text>
+    <text class="field pk" x="20" y="78">PK  id</text>
+    <text class="field fk" x="20" y="103">FK  user_id → users.id</text>
+    <text class="field fk" x="20" y="128">FK  paket_id → pakets.id</text>
+    <text class="field" x="20" y="153">departure_date · travelers</text>
+    <text class="field" x="20" y="178">status · proposed_price</text>
+    <text class="field" x="20" y="203">customer_notes · admin_notes</text>
+    <text class="field" x="20" y="228">created_at · updated_at</text>
+    <text class="meta" x="20" y="260">Status utama: pending_negotiation, awaiting_payment,</text>
+    <text class="meta" x="20" y="276">payment_review, confirmed, cancelled.</text>
+  </g>
+
+  <g transform="translate(980 505)">
+    <rect class="card" width="400" height="260" rx="14"/>
+    <path class="head-blue" d="M14 0H386Q400 0 400 14V48H0V14Q0 0 14 0Z"/>
+    <text class="head-text" x="20" y="31">invoices</text>
+    <text class="field pk" x="20" y="78">PK  id</text>
+    <text class="field fk" x="20" y="103">FK  booking_id → bookings.id (unik)</text>
+    <text class="field" x="20" y="128">invoice_number (unik)</text>
+    <text class="field" x="20" y="153">amount · status</text>
+    <text class="field" x="20" y="178">issued_at · paid_at</text>
+    <text class="field" x="20" y="203">created_at · updated_at</text>
+    <text class="meta" x="20" y="238">Satu invoice untuk setiap pemesanan.</text>
+  </g>
+
+  <g transform="translate(1460 505)">
+    <rect class="card" width="340" height="260" rx="14"/>
+    <path class="head-amber" d="M14 0H326Q340 0 340 14V48H0V14Q0 0 14 0Z"/>
+    <text class="head-text" x="20" y="31">payments</text>
+    <text class="field pk" x="20" y="78">PK  id</text>
+    <text class="field fk" x="20" y="103">FK  invoice_id → invoices.id</text>
+    <text class="field fk" x="20" y="128">FK  payment_method_id</text>
+    <text class="field" x="20" y="153">proof_path · reference</text>
+    <text class="field" x="20" y="178">status · customer_note</text>
+    <text class="field" x="20" y="203">reviewed_at</text>
+    <text class="field" x="20" y="228">created_at · updated_at</text>
+  </g>
+
+  <g transform="translate(80 1010)">
+    <rect class="card" width="350" height="220" rx="14"/>
+    <path class="head-gray" d="M14 0H336Q350 0 350 14V48H0V14Q0 0 14 0Z"/>
+    <text class="head-text" x="20" y="31">company_profiles</text>
+    <text class="field pk" x="20" y="82">PK  id</text>
+    <text class="field" x="20" y="110">name · description · address</text>
+    <text class="field" x="20" y="138">phone · email · website</text>
+    <text class="field" x="20" y="166">created_at · updated_at</text>
+    <text class="meta" x="20" y="198">Data master · tanpa foreign key</text>
+  </g>
+
+  <g transform="translate(510 1010)">
+    <rect class="card" width="350" height="220" rx="14"/>
+    <path class="head-gray" d="M14 0H336Q350 0 350 14V48H0V14Q0 0 14 0Z"/>
+    <text class="head-text" x="20" y="31">management_members</text>
+    <text class="field pk" x="20" y="82">PK  id</text>
+    <text class="field" x="20" y="110">name · position · bio</text>
+    <text class="field" x="20" y="138">sort_order</text>
+    <text class="field" x="20" y="166">created_at · updated_at</text>
+    <text class="meta" x="20" y="198">Data master · tanpa foreign key</text>
+  </g>
+
+  <g transform="translate(930 1010)">
+    <rect class="card" width="360" height="220" rx="14"/>
+    <path class="head-gray" d="M14 0H346Q360 0 360 14V48H0V14Q0 0 14 0Z"/>
+    <text class="head-text" x="20" y="31">company_gallery_images</text>
+    <text class="field pk" x="20" y="82">PK  id</text>
+    <text class="field" x="20" y="110">title · caption</text>
+    <text class="field" x="20" y="138">image_path · sort_order</text>
+    <text class="field" x="20" y="166">published · timestamps</text>
+    <text class="meta" x="20" y="198">Data master · tanpa foreign key</text>
+  </g>
+
+  <rect x="1330" y="1010" width="470" height="220" rx="14" fill="#edf3f8" stroke="#d8e2ec"/>
+  <text class="section-title" x="1360" y="1050">KETERANGAN</text>
+  <text class="field" x="1360" y="1090"><tspan class="pk">PK</tspan><tspan>  Primary key / kunci utama</tspan></text>
+  <text class="field" x="1360" y="1122"><tspan class="fk">FK</tspan><tspan>  Foreign key / relasi tabel</tspan></text>
+  <text class="field" x="1360" y="1154">1 : N  Satu data induk ke banyak data</text>
+  <text class="field" x="1360" y="1186">1 : 0..1  Satu ke nol atau satu data</text>
+  <text class="meta" x="1360" y="1210">Tabel infrastruktur Laravel tidak ditampilkan.</text>
+
+  <text class="meta" x="950" y="1370" text-anchor="middle">Relasi digambar berdasarkan foreign key pada migrasi aplikasi; tabel konten tanpa foreign key ditampilkan sebagai data mandiri.</text>
+</svg>

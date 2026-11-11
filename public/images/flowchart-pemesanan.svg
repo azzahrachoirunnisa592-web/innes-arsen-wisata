@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1760" viewBox="0 0 1400 1760" role="img" aria-labelledby="title description" style="max-width:100%;height:auto">
+  <title id="title">Alur pemesanan paket wisata dan pembayaran</title>
+  <desc id="description">Proses pemesanan konsumen, negosiasi admin, konfirmasi pembayaran, review pembayaran, dan penerbitan kuitansi.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#75879a"/></marker>
+    <style>
+      text{font-family:Arial,sans-serif;fill:#172b4d}.title{font-size:32px;font-weight:700}.subtitle{font-size:16px;fill:#64748b}.label{font-size:16px;font-weight:700}.small{font-size:14px;fill:#52657a}.edge{fill:none;stroke:#75879a;stroke-width:2.5;marker-end:url(#arrow)}.edge-soft{fill:none;stroke:#94a3b8;stroke-width:2.2;marker-end:url(#arrow)}.card{fill:#fff;stroke:#dbe4ee;stroke-width:1.8}.system{fill:#ecfdf5;stroke:#6bb99a;stroke-width:2}.admin{fill:#eef2ff;stroke:#8da2df;stroke-width:2}.decision{fill:#fff7e8;stroke:#e6b45c;stroke-width:2}.end{fill:#0f766e;stroke:#0b5c56;stroke-width:2}.end-text{fill:#fff;font-size:16px;font-weight:700}.branch{font-size:14px;font-weight:700;fill:#475569}.panel{fill:#f7f9fc;stroke:#e2e8f0;stroke-width:1.5}.tag{font-size:12px;font-weight:700;fill:#0f766e}
+    </style>
+  </defs>
+  <rect width="1400" height="1760" fill="#f7f9fc"/>
+  <text class="title" x="700" y="56" text-anchor="middle">PEMESANAN PAKET &amp; PEMBAYARAN</text>
+  <text class="subtitle" x="700" y="86" text-anchor="middle">PT. Innes Arsen Wisata · Alur konsumen, sistem, dan admin</text>
+  <rect class="panel" x="44" y="116" width="1312" height="1580" rx="24"/>
+
+  <ellipse class="end" cx="700" cy="170" rx="88" ry="28"/>
+  <text class="end-text" x="700" y="176" text-anchor="middle">Mulai</text>
+  <path class="edge" d="M700 198V226"/>
+  <rect class="card" x="470" y="230" width="460" height="76" rx="14"/>
+  <text class="label" x="700" y="261" text-anchor="middle">Masuk atau daftar sebagai konsumen</text>
+  <text class="small" x="700" y="285" text-anchor="middle">Pilih paket wisata yang tersedia</text>
+
+  <path class="edge" d="M700 306V337"/>
+  <rect class="card" x="470" y="341" width="460" height="90" rx="14"/>
+  <text class="label" x="700" y="375" text-anchor="middle">Kirim permintaan pemesanan</text>
+  <text class="small" x="700" y="401" text-anchor="middle">Tanggal keberangkatan, jumlah peserta, catatan</text>
+  <text class="small" x="700" y="420" text-anchor="middle">Paket harus berstatus tayang</text>
+
+  <path class="edge" d="M700 431V462"/>
+  <rect class="system" x="450" y="466" width="500" height="86" rx="14"/>
+  <text class="label" x="700" y="501" text-anchor="middle">Sistem membuat booking dan invoice</text>
+  <text class="small" x="700" y="528" text-anchor="middle">Booking: pending_negotiation · Invoice: pending</text>
+
+  <path class="edge" d="M700 552V582"/>
+  <rect class="admin" x="470" y="586" width="460" height="76" rx="14"/>
+  <text class="label" x="700" y="617" text-anchor="middle">Admin meninjau dan menetapkan harga akhir</text>
+  <text class="small" x="700" y="642" text-anchor="middle">Catatan admin dapat disertakan</text>
+
+  <path class="edge" d="M700 662V692"/>
+  <polygon class="decision" points="700,696 835,752 700,808 565,752"/>
+  <text class="label" x="700" y="748" text-anchor="middle">Hasil negosiasi?</text>
+  <text class="small" x="700" y="772" text-anchor="middle">Setujui atau batalkan</text>
+
+  <path class="edge" d="M565 752H300V830"/>
+  <text class="branch" x="430" y="738" text-anchor="middle">Dibatalkan</text>
+  <rect class="card" x="100" y="834" width="400" height="90" rx="14"/>
+  <text class="label" x="300" y="869" text-anchor="middle">Pesanan berstatus cancelled</text>
+  <text class="small" x="300" y="897" text-anchor="middle">Proses berakhir tanpa pembayaran</text>
+  <path class="edge" d="M300 924V965"/>
+  <ellipse class="end" cx="300" cy="994" rx="78" ry="26"/>
+  <text class="end-text" x="300" y="1000" text-anchor="middle">Selesai</text>
+
+  <path class="edge" d="M835 752H1100V830"/>
+  <text class="branch" x="964" y="738" text-anchor="middle">Disetujui</text>
+  <rect class="system" x="900" y="834" width="400" height="90" rx="14"/>
+  <text class="label" x="1100" y="869" text-anchor="middle">Sistem memperbarui nominal invoice</text>
+  <text class="small" x="1100" y="897" text-anchor="middle">Booking: awaiting_payment · Invoice: pending</text>
+  <path class="edge" d="M1100 924V965H700V1000"/>
+
+  <rect class="card" x="450" y="1004" width="500" height="96" rx="14"/>
+  <text class="label" x="700" y="1040" text-anchor="middle">Konsumen membayar dan mengirim konfirmasi</text>
+  <text class="small" x="700" y="1067" text-anchor="middle">Pilih metode aktif, unggah bukti, isi referensi opsional</text>
+  <text class="small" x="700" y="1087" text-anchor="middle">Bukti: JPG, PNG, atau PDF</text>
+
+  <path class="edge" d="M700 1100V1130"/>
+  <rect class="system" x="450" y="1134" width="500" height="86" rx="14"/>
+  <text class="label" x="700" y="1169" text-anchor="middle">Sistem mengirim pembayaran untuk ditinjau</text>
+  <text class="small" x="700" y="1196" text-anchor="middle">Payment: submitted · Invoice: submitted · Booking: payment_review</text>
+
+  <path class="edge" d="M700 1220V1250"/>
+  <rect class="admin" x="470" y="1254" width="460" height="76" rx="14"/>
+  <text class="label" x="700" y="1285" text-anchor="middle">Admin memeriksa bukti dan dana masuk</text>
+  <text class="small" x="700" y="1310" text-anchor="middle">Pencocokan pembayaran dilakukan secara manual</text>
+
+  <path class="edge" d="M700 1330V1360"/>
+  <polygon class="decision" points="700,1364 835,1420 700,1476 565,1420"/>
+  <text class="label" x="700" y="1416" text-anchor="middle">Pembayaran valid?</text>
+
+  <path class="edge" d="M565 1420H300V1510"/>
+  <text class="branch" x="430" y="1406" text-anchor="middle">Tidak · ditolak</text>
+  <rect class="card" x="100" y="1514" width="400" height="94" rx="14"/>
+  <text class="label" x="300" y="1550" text-anchor="middle">Konsumen dapat mengirim ulang bukti</text>
+  <text class="small" x="300" y="1579" text-anchor="middle">Payment: rejected · Invoice: pending</text>
+  <text class="small" x="300" y="1601" text-anchor="middle">Booking: awaiting_payment</text>
+  <path class="edge-soft" d="M100 1560H70V1052H450"/>
+
+  <path class="edge" d="M835 1420H1100V1510"/>
+  <text class="branch" x="964" y="1406" text-anchor="middle">Ya · diterima</text>
+  <rect class="system" x="900" y="1514" width="400" height="94" rx="14"/>
+  <text class="label" x="1100" y="1550" text-anchor="middle">Booking dikonfirmasi dan invoice lunas</text>
+  <text class="small" x="1100" y="1579" text-anchor="middle">Booking: confirmed · Invoice: paid</text>
+  <path class="edge" d="M1100 1608V1640"/>
+  <rect class="card" x="970" y="1644" width="260" height="56" rx="14"/>
+  <text class="label" x="1100" y="1679" text-anchor="middle">Cetak kuitansi</text>
+
+  <rect x="520" y="1638" width="320" height="58" rx="12" fill="#edf3f8" stroke="#d8e2ec"/>
+  <text class="tag" x="680" y="1662" text-anchor="middle">CATATAN</text>
+  <text class="small" x="680" y="1684" text-anchor="middle">Simulasi pembayaran hanya lokal/testing.</text>
+</svg>
