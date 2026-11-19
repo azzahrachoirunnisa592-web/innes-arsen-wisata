@@ -3,7 +3,9 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "build": "vite build",
+        "build": "npm run build:static",
+        "build:static": "node scripts/build-static.mjs",
+        "build:vite": "vite build",
         "dev": "vite"
     },
     "devDependencies": {
