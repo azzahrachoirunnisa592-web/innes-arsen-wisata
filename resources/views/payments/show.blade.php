@@ -22,7 +22,7 @@
         @else
             <div class="qris-missing"><strong>Kode pembayaran DANA belum tersedia</strong><span>Tempatkan gambar kode QR di <code>public/images/qris-dana.png</code>.</span></div>
         @endif
-        @if($paymentSimulationEnabled && $invoice->status === 'pending' && $invoice->booking->status === 'awaiting_payment')
+        @if($paymentSimulationEnabled && $invoice->status === 'pending' && in_array($invoice->booking->status, ['pending_negotiation', 'awaiting_payment'], true))
             <div class="simulation-box">
                 <p class="small muted">Mode lokal/testing saja. Simulasi tidak memproses atau membuktikan transfer uang sungguhan.</p>
                 <button class="button button-light button-block" type="button" data-simulate-payment data-endpoint="{{ route('payments.simulate', $invoice) }}">Simulasi Bayar Berhasil (Test)</button>
@@ -73,21 +73,19 @@
     @push('scripts')
     <script>
     const simulationButton = document.querySelector('[data-simulate-payment]');
+    const paymentSuccessAudio = new Audio('{{ asset('audio/pembayaran-berhasil.mp3') }}');
+    paymentSuccessAudio.preload = 'auto';
 
     if (simulationButton) {
         simulationButton.addEventListener('click', async () => {
-            const AudioContext = window.AudioContext || window.webkitAudioContext;
-            let audioContext = null;
-            let audioReady = Promise.resolve(false);
-
-            if (AudioContext) {
-                try {
-                    audioContext = new AudioContext();
-                    audioReady = audioContext.resume().then(() => true, () => false);
-                } catch {
-                    audioContext = null;
-                }
+            paymentSuccessAudio.muted = true;
+            try {
+                await paymentSuccessAudio.play();
+                paymentSuccessAudio.pause();
+                paymentSuccessAudio.currentTime = 0;
+            } catch {
             }
+            paymentSuccessAudio.muted = false;
 
             const successMessage = document.querySelector('[data-simulation-success]');
             const errorMessage = document.querySelector('[data-simulation-error]');
@@ -131,28 +129,10 @@
                 historyRows.prepend(row);
                 history.hidden = false;
 
-                if (audioContext && await audioReady && audioContext.state === 'running') {
-                    try {
-                        const startAt = audioContext.currentTime;
-                        [660, 880].forEach((frequency, index) => {
-                            const oscillator = audioContext.createOscillator();
-                            const gain = audioContext.createGain();
-                            const start = startAt + index * 0.13;
-                            oscillator.frequency.value = frequency;
-                            gain.gain.setValueAtTime(0.0001, start);
-                            gain.gain.exponentialRampToValueAtTime(0.14, start + 0.02);
-                            gain.gain.exponentialRampToValueAtTime(0.0001, start + 0.22);
-                            oscillator.connect(gain);
-                            gain.connect(audioContext.destination);
-                            oscillator.start(start);
-                            oscillator.stop(start + 0.23);
-                        });
-                    } catch {
-                        successMessage.textContent += ' Audio tidak tersedia di browser ini.';
-                    }
-                } else {
-                    successMessage.textContent += ' Audio tidak tersedia atau diblokir browser.';
-                }
+                paymentSuccessAudio.currentTime = 0;
+                paymentSuccessAudio.play().catch(() => {
+                    successMessage.textContent += ' Audio ditahan oleh browser.';
+                });
             } catch (error) {
                 errorMessage.textContent = error.message;
                 errorMessage.hidden = false;

@@ -1,0 +1,236 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="2320" viewBox="0 0 1600 2320" role="img" aria-labelledby="title description">
+  <title id="title">Metode pengembangan, rancangan, dan pengujian sistem PT. Innes Arsen Wisata</title>
+  <desc id="description">Infografik Waterfall, pemodelan use case DFD ERD, alur pemesanan dan pembayaran, serta contoh skenario pengujian black-box untuk sistem informasi tour and travel.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#728399"/>
+    </marker>
+    <style>
+      text{font-family:Arial,sans-serif;fill:#17324d}
+      .title{font-size:38px;font-weight:700;letter-spacing:.5px}
+      .subtitle{font-size:18px;fill:#60748a}
+      .section{font-size:23px;font-weight:700;fill:#0f766e}
+      .phase{font-size:17px;font-weight:700;fill:#0f766e}
+      .label{font-size:16px;font-weight:700}
+      .body{font-size:14px;fill:#43576c}
+      .small{font-size:12px;fill:#60748a}
+      .tag{font-size:12px;font-weight:700;letter-spacing:.5px;fill:#0f766e}
+      .panel{fill:#fff;stroke:#dbe5ed;stroke-width:1.6}
+      .card{fill:#fff;stroke:#cfdae5;stroke-width:1.5}
+      .green{fill:#eaf7f2;stroke:#70b59e;stroke-width:1.7}
+      .blue{fill:#eef3ff;stroke:#8da2df;stroke-width:1.7}
+      .amber{fill:#fff7e8;stroke:#e2b65f;stroke-width:1.7}
+      .line{fill:none;stroke:#728399;stroke-width:2.2;marker-end:url(#arrow)}
+      .line-soft{fill:none;stroke:#9aa9b8;stroke-width:1.8}
+      .table-head{fill:#eaf1f6}
+      .table-line{stroke:#d8e2eb;stroke-width:1}
+      .white{fill:#fff}
+    </style>
+  </defs>
+
+  <rect width="1600" height="2320" fill="#f3f7fa"/>
+  <rect x="45" y="34" width="1510" height="112" rx="22" fill="#eaf7f2"/>
+  <text class="title" x="800" y="83" text-anchor="middle">METODE &amp; ALUR SISTEM</text>
+  <text class="subtitle" x="800" y="119" text-anchor="middle">Sistem Informasi Pelayanan Jasa Tour &amp; Travel · PT. Innes Arsen Wisata</text>
+
+  <rect class="panel" x="45" y="170" width="1510" height="405" rx="20"/>
+  <text class="section" x="78" y="213">1. METODE PENGEMBANGAN · WATERFALL</text>
+  <text class="small" x="78" y="240">Tahapan berurutan dari kebutuhan hingga pemeliharaan</text>
+
+  <g>
+    <rect class="green" x="75" y="270" width="255" height="245" rx="16"/>
+    <circle cx="110" cy="307" r="20" fill="#0f766e"/>
+    <text class="white label" x="110" y="313" text-anchor="middle">1</text>
+    <text class="phase" x="140" y="313">ANALISIS</text>
+    <text class="body" x="98" y="354">
+      <tspan x="98" dy="0">Identifikasi kebutuhan:</tspan>
+      <tspan x="98" dy="23">• katalog paket &amp; destinasi</tspan>
+      <tspan x="98" dy="22">• akun dan hak akses</tspan>
+      <tspan x="98" dy="22">• booking, invoice, pembayaran</tspan>
+      <tspan x="98" dy="22">• pengajuan kerja sama MoU</tspan>
+    </text>
+
+    <rect class="blue" x="365" y="270" width="255" height="245" rx="16"/>
+    <circle cx="400" cy="307" r="20" fill="#345995"/>
+    <text class="white label" x="400" y="313" text-anchor="middle">2</text>
+    <text class="phase" x="430" y="313" fill="#345995">PERANCANGAN</text>
+    <text class="body" x="388" y="354">
+      <tspan x="388" dy="0">Rancangan sistem &amp; data:</tspan>
+      <tspan x="388" dy="23">• Use case untuk aktor/fitur</tspan>
+      <tspan x="388" dy="22">• DFD untuk aliran informasi</tspan>
+      <tspan x="388" dy="22">• ERD untuk struktur data</tspan>
+      <tspan x="388" dy="22">• flowchart alur layanan</tspan>
+    </text>
+
+    <rect class="green" x="655" y="270" width="255" height="245" rx="16"/>
+    <circle cx="690" cy="307" r="20" fill="#0f766e"/>
+    <text class="white label" x="690" y="313" text-anchor="middle">3</text>
+    <text class="phase" x="720" y="313">IMPLEMENTASI</text>
+    <text class="body" x="678" y="354">
+      <tspan x="678" dy="0">Pembangunan aplikasi:</tspan>
+      <tspan x="678" dy="23">• Laravel 12 dan Blade</tspan>
+      <tspan x="678" dy="22">• MySQL dan model data</tspan>
+      <tspan x="678" dy="22">• halaman publik, admin, konsumen</tspan>
+      <tspan x="678" dy="22">• validasi transaksi &amp; akses</tspan>
+    </text>
+
+    <rect class="amber" x="945" y="270" width="255" height="245" rx="16"/>
+    <circle cx="980" cy="307" r="20" fill="#b7791f"/>
+    <text class="white label" x="980" y="313" text-anchor="middle">4</text>
+    <text class="phase" x="1010" y="313" fill="#9a6416">PENGUJIAN</text>
+    <text class="body" x="968" y="354">
+      <tspan x="968" dy="0">Verifikasi fungsi black-box:</tspan>
+      <tspan x="968" dy="23">• masukan dan respons halaman</tspan>
+      <tspan x="968" dy="22">• pendaftaran &amp; pemesanan</tspan>
+      <tspan x="968" dy="22">• pembatasan role</tspan>
+      <tspan x="968" dy="22">• review pembayaran</tspan>
+    </text>
+
+    <rect class="blue" x="1235" y="270" width="255" height="245" rx="16"/>
+    <circle cx="1270" cy="307" r="20" fill="#345995"/>
+    <text class="white label" x="1270" y="313" text-anchor="middle">5</text>
+    <text class="phase" x="1300" y="313" fill="#345995">PEMELIHARAAN</text>
+    <text class="body" x="1258" y="354">
+      <tspan x="1258" dy="0">Setelah aplikasi digunakan:</tspan>
+      <tspan x="1258" dy="23">• perbaikan berdasar temuan</tspan>
+      <tspan x="1258" dy="22">• pembaruan konten &amp; data</tspan>
+      <tspan x="1258" dy="22">• backup dan keamanan</tspan>
+      <tspan x="1258" dy="22">• evaluasi kebutuhan baru</tspan>
+    </text>
+    <path class="line" d="M332 393H357"/>
+    <path class="line" d="M622 393H647"/>
+    <path class="line" d="M912 393H937"/>
+    <path class="line" d="M1202 393H1227"/>
+  </g>
+  <text class="small" x="800" y="548" text-anchor="middle">Catatan: Waterfall dipilih untuk visualisasi ini; tahapan historis proyek tidak dijabarkan secara khusus di repositori.</text>
+
+  <rect class="panel" x="45" y="600" width="1510" height="400" rx="20"/>
+  <text class="section" x="78" y="644">2. PEMODELAN SISTEM</text>
+  <text class="small" x="78" y="670">Tiga sudut pandang yang saling melengkapi untuk menggambarkan fungsi, aliran data, dan penyimpanan.</text>
+
+  <rect class="card" x="75" y="700" width="455" height="250" rx="16"/>
+  <rect x="75" y="700" width="455" height="46" rx="16" fill="#eaf7f2"/>
+  <text class="phase" x="100" y="730">USE CASE · SIAPA MELAKUKAN APA?</text>
+  <text class="label" x="104" y="783">Pengunjung</text>
+  <text class="body" x="104" y="807">Lihat profil, destinasi, paket, dan artikel.</text>
+  <text class="label" x="104" y="847">Konsumen</text>
+  <text class="body" x="104" y="871">Pesan paket, kirim bukti, ajukan MoU.</text>
+  <text class="label" x="104" y="911">Admin</text>
+  <text class="body" x="104" y="934">Kelola data, negosiasi, dan review pembayaran.</text>
+
+  <rect class="card" x="572" y="700" width="455" height="250" rx="16"/>
+  <rect x="572" y="700" width="455" height="46" rx="16" fill="#eef3ff"/>
+  <text class="phase" x="597" y="730" fill="#345995">DFD · BAGAIMANA DATA MENGALIR?</text>
+  <rect class="blue" x="605" y="780" width="150" height="62" rx="12"/>
+  <text class="label" x="680" y="806" text-anchor="middle">Aktor</text>
+  <text class="small" x="680" y="827" text-anchor="middle">Pengunjung / Admin</text>
+  <path class="line" d="M760 811H825"/>
+  <rect class="green" x="833" y="780" width="160" height="62" rx="12"/>
+  <text class="label" x="913" y="806" text-anchor="middle">Aplikasi</text>
+  <text class="small" x="913" y="827" text-anchor="middle">olah permintaan</text>
+  <text class="body" x="605" y="882">
+    <tspan x="605" dy="0">Data dibaca atau disimpan ke tabel.</tspan>
+    <tspan x="605" dy="23">Transfer bank/DANA terjadi di luar aplikasi;</tspan>
+    <tspan x="605" dy="22">admin mencocokkan pembayaran secara manual.</tspan>
+  </text>
+
+  <rect class="card" x="1069" y="700" width="455" height="250" rx="16"/>
+  <rect x="1069" y="700" width="455" height="46" rx="16" fill="#fff7e8"/>
+  <text class="phase" x="1094" y="730" fill="#9a6416">ERD · DATA APA YANG TERHUBUNG?</text>
+  <text class="label" x="1100" y="783">Layanan &amp; transaksi</text>
+  <text class="body" x="1100" y="808">users → bookings → invoices → payments</text>
+  <text class="body" x="1100" y="833">wisatas → pakets → bookings</text>
+  <text class="label" x="1100" y="875">Layanan pendukung</text>
+  <text class="body" x="1100" y="900">payment_methods · mous · profil perusahaan</text>
+  <text class="small" x="1100" y="929">Relasi mengikuti migrasi database aplikasi.</text>
+
+  <rect class="panel" x="45" y="1025" width="1510" height="660" rx="20"/>
+  <text class="section" x="78" y="1069">3. ALUR PEMESANAN &amp; PEMBAYARAN</text>
+  <text class="small" x="78" y="1096">Konfirmasi pembayaran dilakukan admin setelah bukti dan dana diperiksa.</text>
+
+  <rect class="card" x="85" y="1140" width="315" height="105" rx="15"/>
+  <text class="tag" x="108" y="1168">KONSUMEN</text>
+  <text class="label" x="242" y="1197" text-anchor="middle">Pilih paket &amp; ajukan pesanan</text>
+  <text class="body" x="242" y="1222" text-anchor="middle">Tanggal, peserta, catatan</text>
+
+  <rect class="green" x="455" y="1140" width="315" height="105" rx="15"/>
+  <text class="tag" x="478" y="1168">SISTEM</text>
+  <text class="label" x="612" y="1197" text-anchor="middle">Buat booking &amp; invoice</text>
+  <text class="body" x="612" y="1222" text-anchor="middle">Status awal: negosiasi / pending</text>
+
+  <rect class="blue" x="825" y="1140" width="315" height="105" rx="15"/>
+  <text class="tag" x="848" y="1168">ADMIN</text>
+  <text class="label" x="982" y="1197" text-anchor="middle">Tinjau dan negosiasikan harga</text>
+  <text class="body" x="982" y="1222" text-anchor="middle">Setujui atau batalkan pesanan</text>
+
+  <rect class="card" x="1195" y="1140" width="315" height="105" rx="15"/>
+  <text class="tag" x="1218" y="1168">KONSUMEN</text>
+  <text class="label" x="1352" y="1197" text-anchor="middle">Bayar &amp; kirim bukti</text>
+  <text class="body" x="1352" y="1222" text-anchor="middle">Setelah negosiasi disetujui</text>
+
+  <path class="line" d="M402 1192H447"/>
+  <path class="line" d="M772 1192H817"/>
+  <path class="line" d="M1142 1192H1187"/>
+
+  <path class="line" d="M1352 1247V1302H985V1322"/>
+  <rect class="blue" x="795" y="1326" width="380" height="96" rx="15"/>
+  <text class="tag" x="820" y="1354">ADMIN</text>
+  <text class="label" x="985" y="1382" text-anchor="middle">Periksa bukti dan dana masuk</text>
+  <text class="body" x="985" y="1405" text-anchor="middle">Pencocokan dilakukan secara manual</text>
+  <path class="line" d="M985 1422V1455"/>
+  <polygon class="amber" points="985,1458 1095,1510 985,1562 875,1510"/>
+  <text class="label" x="985" y="1506" text-anchor="middle">Pembayaran</text>
+  <text class="label" x="985" y="1527" text-anchor="middle">valid?</text>
+
+  <path class="line" d="M875 1510H485V1570"/>
+  <text class="tag" x="670" y="1496">TIDAK · DITOLAK</text>
+  <rect class="amber" x="300" y="1574" width="370" height="75" rx="14"/>
+  <text class="label" x="485" y="1605" text-anchor="middle">Konsumen dapat kirim ulang bukti</text>
+  <text class="body" x="485" y="1630" text-anchor="middle">Invoice tetap menunggu pembayaran</text>
+
+  <path class="line" d="M1095 1510H1290V1570"/>
+  <text class="tag" x="1170" y="1496">YA · DITERIMA</text>
+  <rect class="green" x="1105" y="1574" width="370" height="75" rx="14"/>
+  <text class="label" x="1290" y="1605" text-anchor="middle">Pesanan dikonfirmasi</text>
+  <text class="body" x="1290" y="1630" text-anchor="middle">Invoice lunas · kuitansi tersedia</text>
+
+  <rect class="panel" x="45" y="1710" width="1510" height="510" rx="20"/>
+  <text class="section" x="78" y="1754">4. METODE PENGUJIAN · BLACK-BOX</text>
+  <text class="small" x="78" y="1781">Uji fungsi dari masukan dan hasil yang terlihat pengguna, tanpa memeriksa detail internal kode.</text>
+
+  <rect class="table-head" x="75" y="1810" width="1450" height="46" rx="8"/>
+  <text class="label" x="98" y="1840">Skenario</text>
+  <text class="label" x="500" y="1840">Aksi / masukan</text>
+  <text class="label" x="1010" y="1840">Hasil yang diharapkan</text>
+  <path class="table-line" d="M75 1856H1525"/>
+  <path class="table-line" d="M75 1915H1525"/>
+  <path class="table-line" d="M75 1974H1525"/>
+  <path class="table-line" d="M75 2033H1525"/>
+  <path class="table-line" d="M75 2092H1525"/>
+  <path class="table-line" d="M75 2151H1525"/>
+  <path class="table-line" d="M455 1810V2151"/>
+  <path class="table-line" d="M965 1810V2151"/>
+
+  <text class="body" x="98" y="1892">Pendaftaran konsumen</text>
+  <text class="body" x="480" y="1892">Kirim formulir dengan data valid</text>
+  <text class="body" x="990" y="1892">Akun dibuat dengan role customer</text>
+
+  <text class="body" x="98" y="1951">Pemesanan paket</text>
+  <text class="body" x="480" y="1951">Pilih paket tayang, tanggal, peserta</text>
+  <text class="body" x="990" y="1951">Booking dan invoice tercatat</text>
+
+  <text class="body" x="98" y="2010">Pembatasan akses admin</text>
+  <text class="body" x="480" y="2010">Tamu/non-admin buka panel admin</text>
+  <text class="body" x="990" y="2010">Akses ditolak / diarahkan ke beranda</text>
+
+  <text class="body" x="98" y="2069">Konfirmasi pembayaran</text>
+  <text class="body" x="480" y="2069">Unggah bukti lalu admin meninjau</text>
+  <text class="body" x="990" y="2069">Pesanan dikonfirmasi setelah diterima</text>
+
+  <text class="body" x="98" y="2128">Pengajuan kerja sama MoU</text>
+  <text class="body" x="480" y="2128">Kirim data dan cek status pengajuan</text>
+  <text class="body" x="990" y="2128">Status/catatan hasil review terlihat</text>
+
+  <text class="small" x="800" y="2185" text-anchor="middle">Skenario merangkum fitur dan pengujian yang dijelaskan dalam README serta tests/Feature dan tests/Unit.</text>
+  <text class="small" x="800" y="2254" text-anchor="middle">PT. Innes Arsen Wisata · Diagram SVG mandiri · Dapat dibuka di browser atau dicetak</text>
+</svg>

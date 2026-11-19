@@ -1,0 +1,218 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1760" height="1240" viewBox="0 0 1760 1240" role="img" aria-labelledby="title description" style="max-width:100%;height:auto">
+  <title id="title">Pratinjau tampilan web Innes Arsen Wisata</title>
+  <desc id="description">Mockup antarmuka desktop beranda dan tampilan mobile halaman rekomendasi paket wisata Innes Arsen Wisata.</desc>
+  <defs>
+    <linearGradient id="canvas" x2="0" y2="1">
+      <stop stop-color="#f0f6f4"/>
+      <stop offset="1" stop-color="#e8eef3"/>
+    </linearGradient>
+    <linearGradient id="hero" x2="1" y2="1">
+      <stop stop-color="#27594f"/>
+      <stop offset=".55" stop-color="#4c8576"/>
+      <stop offset="1" stop-color="#bfd8cb"/>
+    </linearGradient>
+    <linearGradient id="shade" x2="1">
+      <stop stop-color="#102c2b" stop-opacity=".85"/>
+      <stop offset=".68" stop-color="#102c2b" stop-opacity=".43"/>
+      <stop offset="1" stop-color="#102c2b" stop-opacity=".04"/>
+    </linearGradient>
+    <linearGradient id="sea" x2="0" y2="1">
+      <stop stop-color="#74b8b2"/>
+      <stop offset="1" stop-color="#226c70"/>
+    </linearGradient>
+    <linearGradient id="mountain" x2="0" y2="1">
+      <stop stop-color="#466f63"/>
+      <stop offset="1" stop-color="#244b48"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#173d39" flood-opacity=".12"/>
+    </filter>
+    <clipPath id="desktop-clip"><rect x="48" y="82" width="1240" height="1092" rx="18"/></clipPath>
+    <clipPath id="phone-clip"><rect x="1350" y="170" width="348" height="865" rx="38"/></clipPath>
+    <style>
+      text{font-family:Arial,sans-serif;fill:#172b32}
+      .brand{font-size:15px;font-weight:800;letter-spacing:1px}
+      .nav{font-size:11px;font-weight:600;fill:#344b4d}
+      .eyebrow{font-size:10px;font-weight:700;letter-spacing:1.6px;fill:#0b847b}
+      .hero-title{font-size:37px;font-weight:700;letter-spacing:-1px;fill:#fff}
+      .hero-copy{font-size:13px;fill:#eef7f3}
+      .hero-kicker{font-size:10px;font-weight:700;letter-spacing:1.4px;fill:#d9f1e8}
+      .hero-assurance{font-size:10px;fill:#eaf4ef}
+      .hero-caption{font-size:8px;font-weight:700;letter-spacing:1.5px;fill:#e5f3ed}
+      .button-text{font-size:11px;font-weight:700;fill:#fff}
+      .section-title{font-size:22px;font-weight:700;letter-spacing:-.4px}
+      .link{font-size:11px;font-weight:700;fill:#087e78}
+      .card-title{font-size:13px;font-weight:700}
+      .muted{font-size:10px;fill:#66777c}
+      .price{font-size:13px;font-weight:700;fill:#06635f}
+      .label{font-size:9px;font-weight:700;fill:#087e78}
+      .tiny{font-size:8px;fill:#66777c}
+      .phone-title{font-size:22px;font-weight:700}
+      .phone-label{font-size:9px;font-weight:700}
+      .phone-text{font-size:10px;fill:#455a5c}
+    </style>
+  </defs>
+
+  <rect width="1760" height="1240" fill="url(#canvas)"/>
+  <text x="880" y="38" text-anchor="middle" font-size="12" font-weight="700" letter-spacing="2" fill="#087e78">PRATINJAU USER INTERFACE · INNES ARSEN WISATA</text>
+
+  <g filter="url(#shadow)">
+    <rect x="48" y="82" width="1240" height="1092" rx="18" fill="#fff"/>
+    <g clip-path="url(#desktop-clip)">
+      <rect x="48" y="82" width="1240" height="38" fill="#f3f6f5"/>
+      <circle cx="70" cy="101" r="5" fill="#f08d80"/>
+      <circle cx="87" cy="101" r="5" fill="#e7bd63"/>
+      <circle cx="104" cy="101" r="5" fill="#78b994"/>
+      <rect x="442" y="91" width="420" height="20" rx="10" fill="#fff"/>
+      <text x="652" y="105" text-anchor="middle" font-size="9" fill="#8a999b">innesarsenwisata.id</text>
+
+      <rect x="48" y="120" width="1240" height="68" fill="#fff"/>
+      <rect x="89" y="135" width="38" height="38" rx="11" fill="#087e78"/>
+      <text x="108" y="159" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">IA</text>
+      <text class="brand" x="138" y="151">INNES ARSEN</text>
+      <text x="138" y="165" font-size="7" font-weight="700" letter-spacing="1.5" fill="#66777c">WISATA &amp; TRAVEL</text>
+      <text class="nav" x="328" y="159">Beranda</text>
+      <text class="nav" x="396" y="159">Destinasi</text>
+      <text class="nav" x="472" y="159">Jelajah</text>
+      <text class="nav" x="538" y="159">Budaya &amp; Sejarah</text>
+      <text class="nav" x="671" y="159">Kuliner</text>
+      <text class="nav" x="730" y="159">Profil</text>
+      <text class="nav" x="784" y="159">Berita</text>
+      <rect x="1137" y="137" width="103" height="36" rx="8" fill="#087e78"/>
+      <text class="button-text" x="1188" y="159" text-anchor="middle">Masuk</text>
+
+      <rect x="76" y="208" width="1184" height="436" rx="17" fill="url(#hero)"/>
+      <circle cx="1061" cy="310" r="53" fill="#f2d89e" opacity=".92"/>
+      <path d="M715 558L881 356L1001 482L1092 388L1260 565V644H715Z" fill="#54877a"/>
+      <path d="M893 644L1043 421L1188 543L1272 453V644Z" fill="url(#mountain)"/>
+      <path d="M1015 475L1043 421L1071 464L1048 455Z" fill="#e8eee1" opacity=".9"/>
+      <path d="M1092 644C1138 592 1193 589 1260 620V644Z" fill="#1e5c57" opacity=".8"/>
+      <rect x="76" y="208" width="1184" height="436" rx="17" fill="url(#shade)"/>
+      <text class="hero-kicker" x="125" y="287">✦  PERJALANAN ANDA, CERITA ISTIMEWA</text>
+      <text class="hero-title" x="125" y="350">Jelajahi keindahan</text>
+      <text class="hero-title" x="125" y="393">Indonesia bersama kami.</text>
+      <text class="hero-copy" x="126" y="426">Temukan destinasi pilihan, layanan perjalanan yang personal,</text>
+      <text class="hero-copy" x="126" y="447">dan pengalaman berkesan bersama PT. Innes Arsen Wisata.</text>
+      <rect x="125" y="476" width="198" height="43" rx="8" fill="#087e78"/>
+      <text class="button-text" x="224" y="502" text-anchor="middle">Pesan paket sekarang  →</text>
+      <rect x="337" y="476" width="152" height="43" rx="8" fill="#ffffff" fill-opacity=".09" stroke="#fff" stroke-opacity=".72"/>
+      <text class="button-text" x="413" y="502" text-anchor="middle">Jelajahi wisata</text>
+      <circle cx="133" cy="548" r="8" fill="#c9e8d9"/>
+      <text x="133" y="552" text-anchor="middle" font-size="9" font-weight="700" fill="#1b6453">✓</text>
+      <text class="hero-assurance" x="149" y="552">Perjalanan domestik, study tour, dan layanan grup</text>
+      <text class="hero-caption" x="1218" y="606" text-anchor="end">INDONESIA</text>
+
+      <text class="eyebrow" x="90" y="694">TEMUKAN PERJALANAN ANDA</text>
+      <text class="section-title" x="90" y="722">Paket wisata unggulan</text>
+      <text class="link" x="1170" y="720" text-anchor="end">Lihat semua paket  →</text>
+
+      <g>
+        <rect x="90" y="745" width="360" height="304" rx="12" fill="#fff" stroke="#e4ebe8"/>
+        <rect x="90" y="745" width="360" height="154" rx="12" fill="#dbece6"/>
+        <path d="M90 856L191 790L257 854L320 782L450 860V899H90Z" fill="#6ba18d"/>
+        <path d="M90 877C170 844 236 884 304 856C359 833 406 851 450 863V899H90Z" fill="url(#sea)"/>
+        <circle cx="363" cy="790" r="22" fill="#f2d79c"/>
+        <rect x="107" y="761" width="74" height="23" rx="5" fill="#fff" fill-opacity=".92"/>
+        <text class="label" x="144" y="776" text-anchor="middle">DOMESTIK</text>
+        <text class="muted" x="109" y="925">Bali, Bali</text>
+        <text class="card-title" x="109" y="950">Jelajah Bali</text>
+        <text class="muted" x="109" y="974">3 hari · 2 malam · Kuota 20 orang</text>
+        <line x1="109" y1="994" x2="431" y2="994" stroke="#e4ebe8"/>
+        <text class="price" x="109" y="1024">Rp 2.500.000</text>
+        <text x="421" y="1024" text-anchor="end" font-size="10" font-weight="700" fill="#087e78">Detail →</text>
+
+        <rect x="475" y="745" width="360" height="304" rx="12" fill="#fff" stroke="#e4ebe8"/>
+        <rect x="475" y="745" width="360" height="154" rx="12" fill="#dce8df"/>
+        <path d="M526 899V846H560V899M576 899V824H610V899M627 899V846H661V899M677 899V824H712V899M729 899V846H765V899" fill="#8c563d"/>
+        <path d="M520 848L543 813L566 848ZM571 826L593 791L615 826ZM622 848L644 813L666 848ZM672 826L695 791L718 826ZM724 848L747 813L770 848Z" fill="#b87952"/>
+        <rect x="492" y="761" width="74" height="23" rx="5" fill="#fff" fill-opacity=".92"/>
+        <text class="label" x="529" y="776" text-anchor="middle">DOMESTIK</text>
+        <text class="muted" x="494" y="925">Magelang, Jawa Tengah</text>
+        <text class="card-title" x="494" y="950">Paket Wisata Magelang &amp; Borobudur</text>
+        <text class="muted" x="494" y="974">3 hari · 2 malam · Kuota 20 orang</text>
+        <line x1="494" y1="994" x2="816" y2="994" stroke="#e4ebe8"/>
+        <text class="price" x="494" y="1024">Rp 1.850.000</text>
+        <text x="806" y="1024" text-anchor="end" font-size="10" font-weight="700" fill="#087e78">Detail →</text>
+
+        <rect x="860" y="745" width="360" height="304" rx="12" fill="#fff" stroke="#e4ebe8"/>
+        <rect x="860" y="745" width="360" height="154" rx="12" fill="#dcece8"/>
+        <circle cx="1114" cy="785" r="25" fill="#f3d9a2"/>
+        <path d="M860 872L969 814L1040 864L1112 800L1220 867V899H860Z" fill="#648b80"/>
+        <path d="M860 884L973 840L1035 871L1118 832L1220 877V899H860Z" fill="#3c7069"/>
+        <path d="M860 891C959 875 1046 898 1120 881C1167 870 1196 878 1220 884V899H860Z" fill="#76b7a5"/>
+        <rect x="877" y="761" width="74" height="23" rx="5" fill="#fff" fill-opacity=".92"/>
+        <text class="label" x="914" y="776" text-anchor="middle">DOMESTIK</text>
+        <text class="muted" x="879" y="925">Sidoarjo, Jawa Timur</text>
+        <text class="card-title" x="879" y="950">Paket Wisata Sidoarjo &amp; Sekitarnya</text>
+        <text class="muted" x="879" y="974">3 hari · 2 malam · Kuota 20 orang</text>
+        <line x1="879" y1="994" x2="1201" y2="994" stroke="#e4ebe8"/>
+        <text class="price" x="879" y="1024">Rp 1.350.000</text>
+        <text x="1191" y="1024" text-anchor="end" font-size="10" font-weight="700" fill="#087e78">Detail →</text>
+      </g>
+      <rect x="76" y="1080" width="1184" height="94" fill="#f8faf8"/>
+      <text x="95" y="1114" font-size="10" font-weight="700" fill="#172b32">PT. INNES ARSEN WISATA</text>
+      <text x="95" y="1137" font-size="9" fill="#66777c">Mitra perjalanan Anda untuk menjelajahi destinasi pilihan di Indonesia.</text>
+      <text x="1238" y="1147" text-anchor="end" font-size="9" fill="#66777c">Beranda  ·  Paket wisata  ·  Profil perusahaan</text>
+    </g>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="1338" y="158" width="372" height="894" rx="48" fill="#172b32"/>
+    <rect x="1350" y="170" width="348" height="870" rx="38" fill="#fff"/>
+    <g clip-path="url(#phone-clip)">
+      <rect x="1350" y="170" width="348" height="30" fill="#fff"/>
+      <rect x="1466" y="178" width="116" height="18" rx="9" fill="#172b32"/>
+      <rect x="1350" y="200" width="348" height="62" fill="#fff"/>
+      <rect x="1371" y="212" width="35" height="35" rx="10" fill="#087e78"/>
+      <text x="1388" y="235" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">IA</text>
+      <text x="1416" y="227" font-size="12" font-weight="800" fill="#172b32">INNES ARSEN</text>
+      <text x="1416" y="240" font-size="6" font-weight="700" letter-spacing="1.2" fill="#66777c">WISATA &amp; TRAVEL</text>
+      <rect x="1649" y="220" width="27" height="23" rx="5" fill="#f2f6f5"/>
+      <path d="M1656 227H1669M1656 232H1669M1656 237H1669" stroke="#36504e" stroke-width="1.5"/>
+      <rect x="1350" y="262" width="348" height="778" fill="#fbfcfb"/>
+      <text class="eyebrow" x="1372" y="300">TEMUKAN PERJALANAN ANDA</text>
+      <text class="phone-title" x="1372" y="333">Destinasi dan paket</text>
+      <text class="phone-title" x="1372" y="359">wisata</text>
+      <text class="phone-text" x="1372" y="385">Pilih yang paling sesuai dengan</text>
+      <text class="phone-text" x="1372" y="400">rencana perjalanan Anda.</text>
+
+      <rect x="1367" y="420" width="314" height="324" rx="14" fill="#f0f8f5" stroke="#d9ebe4"/>
+      <text x="1384" y="449" font-size="15" font-weight="700" fill="#172b32">Bantu pilihkan paket wisata</text>
+      <text x="1384" y="468" font-size="9" fill="#66777c">Ceritakan minat dan kebutuhan Anda.</text>
+      <text class="phone-label" x="1384" y="494">Saya suka wisata</text>
+      <rect x="1384" y="500" width="280" height="31" rx="7" fill="#fff" stroke="#dce6e2"/>
+      <text class="phone-text" x="1396" y="520">Wisata kuliner</text>
+      <path d="M1648 512L1653 517L1658 512" fill="none" stroke="#66777c" stroke-width="1.4"/>
+      <text class="phone-label" x="1384" y="550">Destinasi pilihan</text>
+      <rect x="1384" y="556" width="280" height="31" rx="7" fill="#fff" stroke="#dce6e2"/>
+      <text class="phone-text" x="1396" y="576">Semua destinasi</text>
+      <path d="M1648 568L1653 573L1658 568" fill="none" stroke="#66777c" stroke-width="1.4"/>
+      <text class="phone-label" x="1384" y="606">Budget maks. per orang</text>
+      <rect x="1384" y="612" width="280" height="31" rx="7" fill="#fff" stroke="#dce6e2"/>
+      <text class="phone-text" x="1396" y="632">Rp 2.000.000</text>
+      <text class="phone-label" x="1384" y="662">Durasi yang diinginkan</text>
+      <rect x="1384" y="668" width="280" height="31" rx="7" fill="#fff" stroke="#dce6e2"/>
+      <text class="phone-text" x="1396" y="688">3 hari</text>
+      <rect x="1384" y="707" width="280" height="27" rx="7" fill="#087e78"/>
+      <text class="button-text" x="1524" y="725" text-anchor="middle" font-size="9">Cari rekomendasi</text>
+
+      <text x="1372" y="775" font-size="14" font-weight="700" fill="#172b32">Rekomendasi untuk Anda</text>
+      <text x="1372" y="792" font-size="8" fill="#66777c">Paket yang cocok dengan minat kuliner</text>
+      <rect x="1367" y="802" width="314" height="220" rx="12" fill="#fff" stroke="#e4ebe8"/>
+      <rect x="1367" y="802" width="314" height="94" rx="12" fill="#dcece8"/>
+      <path d="M1367 867L1450 832L1501 871L1554 824L1681 874V896H1367Z" fill="#5b927f"/>
+      <path d="M1367 879C1432 859 1495 886 1553 865C1606 847 1647 867 1681 874V896H1367Z" fill="#368077"/>
+      <rect x="1380" y="812" width="67" height="19" rx="5" fill="#fff"/>
+      <text x="1413" y="825" text-anchor="middle" font-size="7" font-weight="700" fill="#087e78">DOMESTIK</text>
+      <text class="tiny" x="1382" y="913">Sidoarjo, Jawa Timur</text>
+      <text x="1382" y="933" font-size="10" font-weight="700" fill="#172b32">Paket Wisata Sidoarjo &amp; Sekitarnya</text>
+      <rect x="1382" y="943" width="136" height="19" rx="9" fill="#e8f5ef"/>
+      <text x="1450" y="956" text-anchor="middle" font-size="7" font-weight="700" fill="#17624f">SESUAI MINAT KULINER</text>
+      <text x="1382" y="994" font-size="11" font-weight="700" fill="#06635f">Rp 1.350.000</text>
+      <text x="1665" y="994" text-anchor="end" font-size="9" font-weight="700" fill="#087e78">Detail →</text>
+      <rect x="1444" y="1025" width="156" height="5" rx="2.5" fill="#172b32" opacity=".8"/>
+    </g>
+  </g>
+  <text x="1519" y="1083" text-anchor="middle" font-size="10" font-weight="700" letter-spacing="1.4" fill="#45615c">TAMPILAN MOBILE</text>
+  <text x="668" y="1206" text-anchor="middle" font-size="10" font-weight="700" letter-spacing="1.4" fill="#45615c">TAMPILAN DESKTOP</text>
+</svg>

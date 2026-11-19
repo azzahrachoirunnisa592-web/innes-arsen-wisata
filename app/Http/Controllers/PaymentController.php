@@ -33,9 +33,10 @@ class PaymentController extends Controller
             $booking = $lockedInvoice->booking()->lockForUpdate()->firstOrFail();
 
             abort_unless(
-                $lockedInvoice->status === 'pending' && $booking->status === 'awaiting_payment',
+                $lockedInvoice->status === 'pending'
+                    && in_array($booking->status, ['pending_negotiation', 'awaiting_payment'], true),
                 422,
-                'Simulasi hanya tersedia untuk invoice yang menunggu pembayaran.',
+                'Simulasi hanya tersedia untuk invoice yang belum lunas.',
             );
 
             $paymentMethod = PaymentMethod::query()

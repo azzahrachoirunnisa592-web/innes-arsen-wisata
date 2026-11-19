@@ -115,6 +115,56 @@ class TravelServiceTest extends TestCase
         ]);
     }
 
+    public function test_package_recommendations_match_customer_interests_and_budget(): void
+    {
+        $destination = Wisata::create([
+            'name' => 'Sidoarjo',
+            'slug' => 'sidoarjo',
+            'description' => 'Wisata budaya dan kuliner lokal.',
+        ]);
+        $culinaryPackage = Paket::create([
+            'wisata_id' => $destination->id,
+            'title' => 'Jelajah Kuliner Sidoarjo',
+            'slug' => 'jelajah-kuliner-sidoarjo',
+            'category' => 'Domestik',
+            'duration_days' => 2,
+            'duration_nights' => 1,
+            'price' => 1200000,
+            'quota' => 20,
+            'description' => 'Wisata kuliner dan makanan khas pesisir.',
+            'published' => true,
+        ]);
+        $culturePackage = Paket::create([
+            'wisata_id' => Wisata::create([
+                'name' => 'Kota Sejarah',
+                'slug' => 'kota-sejarah',
+                'description' => 'Wisata sejarah dengan museum dan bangunan lama.',
+            ])->id,
+            'title' => 'Jelajah Sejarah Sidoarjo',
+            'slug' => 'jelajah-sejarah-sidoarjo',
+            'category' => 'Domestik',
+            'duration_days' => 3,
+            'duration_nights' => 2,
+            'price' => 1800000,
+            'quota' => 20,
+            'description' => 'Kunjungi museum dan situs sejarah.',
+            'published' => true,
+        ]);
+
+        $this->get(route('packages.index', [
+            'minat' => 'kuliner',
+            'budget' => 1500000,
+            'durasi' => 2,
+        ]))
+            ->assertOk()
+            ->assertSee('Rekomendasi untuk Anda')
+            ->assertSeeInOrder([
+                $culinaryPackage->title,
+                'Sesuai minat Wisata kuliner',
+                $culturePackage->title,
+            ]);
+    }
+
     public function test_customer_cannot_open_admin_panel(): void
     {
         $customer = User::factory()->create(['role' => 'customer']);
@@ -255,7 +305,8 @@ class TravelServiceTest extends TestCase
         $this->app->instance('env', 'testing');
         $this->actingAs($customer)->get(route('invoices.show', $invoice))
             ->assertOk()
-            ->assertSee('Simulasi Bayar Berhasil (Test)');
+            ->assertSee('Simulasi Bayar Berhasil (Test)')
+            ->assertSee('pembayaran-berhasil.mp3');
 
         $this->actingAs($customer)->postJson(route('payments.simulate', $invoice))
             ->assertOk()

@@ -1,4 +1,19 @@
 .package-listing{margin-top:30px}
+.recommendation-panel{margin:28px 0 36px;padding:26px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(135deg,#f0faf6,#f8fbff)}
+.recommendation-heading{max-width:680px;margin-bottom:20px}
+.recommendation-heading h2{margin:5px 0 8px;color:var(--ink);font-size:clamp(1.45rem,3vw,2rem)}
+.recommendation-heading p,.recommendation-results-heading p{margin:0;color:var(--muted)}
+.recommendation-form{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));align-items:end;gap:14px}
+.recommendation-form label{color:var(--ink);font-size:.82rem;font-weight:700}
+.recommendation-form select,.recommendation-form input{width:100%;min-height:42px;padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);font:inherit}
+.recommendation-form select:focus,.recommendation-form input:focus{border-color:var(--teal);outline:3px solid rgba(8,126,120,.15)}
+.recommendation-results{margin-top:28px}
+.recommendation-results-heading{margin-bottom:16px}
+.recommendation-results-heading h3{margin:0 0 6px;color:var(--ink);font-size:1.3rem}
+.recommendation-card{height:100%}
+.recommendation-reasons{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0;padding:0;list-style:none}
+.recommendation-reasons li{padding:5px 9px;border-radius:20px;background:#e8f5ef;color:#17624f;font-size:.76rem;font-weight:700}
+.recommendation-fallback,.recommendation-empty{margin:12px 0;color:var(--muted);font-size:.9rem}
 .package-filter{display:flex;align-items:end;flex-wrap:wrap;gap:12px;margin-bottom:22px}
 .filter-field{display:grid;gap:5px}
 .package-filter label{color:var(--ink);font-size:.82rem;font-weight:700}
@@ -13,7 +28,13 @@
 .package-pagination .page-item.disabled .page-link{color:#9aa8a6}
 
 @media(max-width:600px){
+    .recommendation-panel{padding:20px 16px}
+    .recommendation-form{grid-template-columns:1fr}
     .package-filter{align-items:stretch;flex-direction:column}
     .package-filter select{width:100%}
     .package-filter .button{width:100%}
+}
+
+@media(min-width:601px) and (max-width:900px){
+    .recommendation-form{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
