@@ -5,13 +5,25 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    {
-      "source": "/masuk",
-      "destination": "/masuk.html"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
+    { "source": "/masuk", "destination": "/masuk.html" },
+    { "source": "/login", "destination": "/login.html" },
+    { "source": "/daftar", "destination": "/daftar.html" },
+    { "source": "/paket", "destination": "/paket.html" },
+    { "source": "/paket/:slug", "destination": "/destinasi.html" },
+    { "source": "/artikel/:slug", "destination": "/berita.html" },
+    { "source": "/dashboard", "destination": "/dashboard.html" },
+    { "source": "/mou", "destination": "/mou.html" },
+    { "source": "/keluar", "destination": "/keluar.html" },
+    { "source": "/invoice/1", "destination": "/invoice/1.html" },
+    { "source": "/invoice/1/cetak", "destination": "/invoice/1/cetak.html" },
+    { "source": "/admin", "destination": "/admin.html" },
+    { "source": "/admin/paket", "destination": "/admin/paket.html" },
+    { "source": "/admin/wisata", "destination": "/admin/wisata.html" },
+    { "source": "/admin/pesanan", "destination": "/admin/pesanan.html" },
+    { "source": "/admin/pembayaran", "destination": "/admin/pembayaran.html" },
+    { "source": "/admin/konsumen", "destination": "/admin/konsumen.html" },
+    { "source": "/admin/mou", "destination": "/admin/mou.html" },
+    { "source": "/admin/pengaturan", "destination": "/admin/pengaturan.html" },
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }

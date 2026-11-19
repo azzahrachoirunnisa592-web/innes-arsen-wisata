@@ -24,6 +24,23 @@ const routes = [
     ['profil', '/profil', 'Profil'],
     ['advertorial', '/advertorial', 'Advertorial'],
     ['berita', '/berita', 'Berita'],
+    ['masuk', '/masuk', 'Masuk'],
+    ['login-legacy', '/login', 'Login'],
+    ['daftar', '/daftar', 'Daftar'],
+    ['paket-legacy', '/paket', 'Paket Lama'],
+    ['dashboard-pelanggan', '/dashboard', 'Pesanan Saya'],
+    ['mou-pelanggan', '/mou', 'Kerja Sama MoU'],
+    ['keluar', '/keluar', 'Keluar'],
+    ['invoice-demo', '/invoice/1', 'Invoice Demo'],
+    ['invoice-cetak-demo', '/invoice/1/cetak', 'Cetak Invoice Demo'],
+    ['admin', '/admin', 'Panel Admin'],
+    ['admin-paket', '/admin/paket', 'Kelola Paket'],
+    ['admin-wisata', '/admin/wisata', 'Kelola Wisata'],
+    ['admin-pesanan', '/admin/pesanan', 'Kelola Pesanan'],
+    ['admin-pembayaran', '/admin/pembayaran', 'Kelola Pembayaran'],
+    ['admin-konsumen', '/admin/konsumen', 'Kelola Konsumen'],
+    ['admin-mou', '/admin/mou', 'Kelola MoU'],
+    ['admin-pengaturan', '/admin/pengaturan', 'Pengaturan Admin'],
 ];
 
 const packages = [
@@ -74,6 +91,17 @@ const articles = [
     },
 ];
 
+const publicRoutes = [
+    ['beranda', '/', 'Beranda'],
+    ['destinasi', '/destinasi', 'Destinasi'],
+    ['jelajah', '/jelajah', 'Jelajah'],
+    ['budaya', '/budaya-sejarah', 'Budaya & Sejarah'],
+    ['kuliner', '/kuliner', 'Kuliner'],
+    ['profil', '/profil', 'Profil'],
+    ['advertorial', '/advertorial', 'Advertorial'],
+    ['berita', '/berita', 'Berita'],
+];
+
 function nav(active) {
     return `
     <header class="site-header no-print">
@@ -82,7 +110,7 @@ function nav(active) {
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavigation" aria-expanded="false" aria-label="Buka navigasi"><span class="navbar-toggler-icon"></span></button>
         <div class="navbar-collapse collapse" id="mainNavigation">
           <div class="nav-links ms-auto">
-            ${routes.slice(1).map(([, href, label]) => `<a href="${href}" ${active === href ? 'class="active" aria-current="page"' : ''}>${label}</a>`).join('')}
+            ${publicRoutes.slice(1).map(([, href, label]) => `<a href="${href}" ${active === href ? 'class="active" aria-current="page"' : ''}>${label}</a>`).join('')}
             <a class="button button-small" href="/masuk">Masuk</a>
           </div>
         </div>
@@ -133,6 +161,28 @@ document.querySelectorAll('.package-art-image').forEach((image) => {
     const artwork = image.closest('.package-art');
     if (artwork) { image.hidden = true; artwork.classList.add('image-unavailable'); }
   }, { once: true });
+});
+
+const loginForm = document.querySelector('[data-demo-login]');
+if (loginForm) {
+  const message = loginForm.querySelector('[data-demo-login-message]');
+  loginForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (!loginForm.reportValidity()) return;
+    message.hidden = false;
+    message.textContent = 'Demo login berhasil. Membuka tampilan dashboard simulasi...';
+    window.setTimeout(() => { window.location.assign('/dashboard'); }, 700);
+  });
+}
+
+document.querySelectorAll('[data-demo-action]').forEach((button) => {
+  button.addEventListener('click', () => {
+    const message = document.querySelector('[data-demo-action-message]');
+    if (message) {
+      message.hidden = false;
+      message.textContent = 'Demo berhasil: aksi ini siap ditangani oleh backend Laravel pada deployment PHP/MySQL.';
+    }
+  });
 });
 </script>
 </body>
@@ -206,26 +256,46 @@ const pageBodies = {
     '/profil': `<section class="page-heading"><span class="eyebrow">Profil perusahaan</span><h1>PT. Innes Arsen Wisata</h1></section><div class="profile-detail"><article class="profile-story"><h2>Mitra perjalanan Anda untuk menjelajahi destinasi pilihan di Indonesia.</h2><p>Kami melayani rencana perjalanan domestik, study tour, perjalanan grup, dan perjalanan berorientasi budaya serta kuliner.</p><a class="button" href="/destinasi">Lihat paket wisata</a></article><aside class="profile-contact"><h2>Informasi layanan</h2><div><strong>PT. Innes Arsen Wisata</strong><p>Paket wisata domestik dan perjalanan grup.</p></div></aside></div>`,
     '/advertorial': `<section class="editorial-heading"><span class="eyebrow">Advertorial</span><h1>Rekomendasi perjalanan bersama Innes Arsen Wisata</h1><p>Pilih paket yang sesuai waktu, jumlah peserta, destinasi, dan anggaran perjalanan.</p></section><div class="editorial-cta"><div><h2>Rencanakan perjalanan bersama tim kami</h2><p>Sesuaikan jadwal dan kebutuhan rombongan melalui halaman destinasi.</p></div><a class="button" href="/destinasi">Lihat Destinasi</a></div>`,
     '/berita': `<section class="editorial-heading"><span class="eyebrow">Berita</span><h1>Kabar dan panduan perjalanan</h1></section><div class="news-list"><article class="news-item"><span class="news-label">Panduan</span><h3>Periksa rincian paket sebelum memesan</h3><p>Pastikan jadwal, peserta, fasilitas, dan ketentuan sesuai kebutuhan.</p></article><article class="news-item"><span class="news-label">Informasi</span><h3>Persiapan sebelum berwisata</h3><p>Periksa cuaca, dokumen, kebutuhan kesehatan, dan perlengkapan perjalanan.</p></article><article class="news-item"><span class="news-label">Layanan</span><h3>Konfirmasi pemesanan</h3><p>Pastikan rincian pesanan telah dikonfirmasi sebelum pembayaran.</p></article></div>`,
+    '/login': `<meta http-equiv="refresh" content="0;url=/masuk">`,
+    '/paket': `<meta http-equiv="refresh" content="0;url=/destinasi">`,
     '/masuk': `<section class="auth-wrap">
         <div class="auth-intro">
             <span class="eyebrow">Selamat datang kembali</span>
             <h1>Masuk ke akun Anda.</h1>
             <p>Lihat status pesanan, lanjutkan pembayaran, atau pantau pengajuan kerja sama Anda.</p>
         </div>
-        <form class="form-card form-stack" action="#" onsubmit="event.preventDefault(); return false;">
+        <form class="form-card form-stack" data-demo-login novalidate>
             <h2>Masuk</h2>
             <div class="notice" role="note">Versi statis Vercel ini hanya menampilkan demo. Autentikasi penuh, login akun, dan akses dashboard berjalan di backend Laravel.</div>
+            <div class="alert alert-success" data-demo-login-message role="status" hidden></div>
             <label>Email<input type="email" name="email" autocomplete="email" placeholder="nama@email.com" required></label>
             <label>Kata sandi<input type="password" name="password" autocomplete="current-password" placeholder="Masukkan kata sandi" required></label>
             <label class="check-row"><input type="checkbox" name="remember" value="1"> Ingat saya</label>
             <button class="button button-block" type="submit">Masuk ke akun</button>
-            <p class="form-foot">Belum punya akun? <a href="/destinasi">Jelajahi paket wisata</a></p>
+            <p class="form-foot">Belum punya akun? <a href="/daftar">Daftar akun demo</a></p>
         </form>
     </section>`,
+    '/daftar': `<section class="auth-wrap"><div class="auth-intro"><span class="eyebrow">Pendaftaran pelanggan</span><h1>Buat akun demo.</h1><p>Silakan gunakan halaman ini untuk memperagakan alur pendaftaran situs.</p></div><form class="form-card form-stack" data-demo-login><h2>Daftar</h2><div class="notice">Pendaftaran riil dan penyimpanan akun membutuhkan backend Laravel serta database MySQL.</div><div class="alert alert-success" data-demo-login-message role="status" hidden></div><label>Nama<input type="text" required></label><label>Email<input type="email" required></label><label>Kata sandi<input type="password" required></label><button class="button button-block" type="submit">Daftar akun demo</button><p class="form-foot">Sudah punya akun? <a href="/masuk">Masuk</a></p></form></section>`,
+    '/dashboard': `<section class="page-heading"><span class="eyebrow">Demo dashboard pelanggan</span><h1>Pesanan saya</h1><p>Berikut tampilan simulasi setelah login berhasil.</p></section><div class="notice">Autentikasi dan data pesanan riil membutuhkan backend Laravel serta database MySQL.</div><div class="stats-grid"><article class="stat-card"><span>Pesanan</span><strong>1</strong><a href="/invoice/1">Lihat invoice</a></article><article class="stat-card"><span>Status</span><strong>Demo</strong><a href="/invoice/1">Buka pembayaran</a></article><article class="stat-card"><span>MoU</span><strong>0</strong><a href="/mou">Kelola MoU</a></article></div>`,
+    '/mou': `<section class="page-heading"><span class="eyebrow">Demo kerja sama</span><h1>Pengajuan MoU</h1></section><div class="form-card form-stack"><div class="notice">Formulir ini hanya simulasi frontend. Pengiriman dokumen MoU riil dijalankan oleh backend Laravel.</div><label>Nama perusahaan<input type="text" placeholder="Nama perusahaan"></label><label>Pesan<textarea rows="4" placeholder="Tulis kebutuhan kerja sama"></textarea></label><button class="button" type="button" data-demo-action>Kirim simulasi MoU</button><div class="alert alert-success" data-demo-action-message role="status" hidden></div></div>`,
+    '/keluar': `<section class="auth-wrap"><div class="auth-intro"><span class="eyebrow">Sesi demo</span><h1>Anda telah keluar.</h1><p>Versi statis ini tidak menyimpan sesi login atau data pengguna.</p></div><div class="form-card"><a class="button button-block" href="/masuk">Masuk kembali</a><a class="button button-light button-block" href="/">Kembali ke beranda</a></div></section>`,
+    '/invoice/1': `<section class="page-heading"><span class="eyebrow">Demo invoice</span><h1>Invoice INV-DEMO-001</h1><p>Status: <span class="badge">Menunggu pembayaran</span></p></section><div class="payment-layout"><section class="panel"><h2>Ringkasan pesanan</h2><div class="summary-row"><span>Paket wisata</span><strong>Paket Wisata Sidoarjo</strong></div><div class="summary-row"><span>Jumlah peserta</span><strong>1 orang</strong></div><div class="summary-row summary-total"><span>Total tagihan</span><strong>Rp 1.343.001</strong></div><a class="button button-light" href="/invoice/1/cetak">Cetak invoice / kuitansi</a></section><section class="panel payment-panel"><span class="eyebrow">Simulasi pembayaran</span><h2>Pembayaran demo</h2><div class="notice">Pembayaran nyata, bukti transfer, dan status invoice diproses oleh backend Laravel serta database MySQL.</div><button class="button button-block" type="button" data-demo-action>Simulasi pembayaran berhasil</button><div class="alert alert-success" data-demo-action-message role="status" hidden></div></section></div>`,
+    '/invoice/1/cetak': `<article class="receipt"><div class="receipt-head"><div class="brand"><span class="brand-mark">IA</span><span>INNES ARSEN<small>WISATA &amp; TRAVEL</small></span></div><div class="receipt-title"><span class="eyebrow">DEMO TAGIHAN</span><h1>INV-DEMO-001</h1></div></div><hr><div class="receipt-columns"><div><span class="muted small">DITERBITKAN UNTUK</span><h3>Pelanggan Demo</h3></div><div><span class="muted small">STATUS</span><h3>SIMULASI</h3></div></div><div class="receipt-total"><span>Total</span><strong>Rp 1.343.001</strong></div><div class="notice">Dokumen ini adalah simulasi tampilan dan bukan bukti pembayaran sah.</div><div class="receipt-actions no-print"><button class="button" type="button" onclick="window.print()">Cetak / Simpan PDF</button><a class="button button-light" href="/invoice/1">Kembali ke invoice</a></div></article>`,
+    '/admin': `<section class="page-heading"><span class="eyebrow">Demo panel</span><h1>Dashboard admin</h1><p>Simulasi tampilan pengelolaan PT. Innes Arsen Wisata.</p></section><div class="notice">Data dan aksi admin di halaman Vercel ini bersifat demo. Operasi riil membutuhkan backend Laravel dan database MySQL.</div><div class="stats-grid"><article class="stat-card"><span>Paket</span><strong>3</strong><a href="/admin/paket">Kelola paket</a></article><article class="stat-card"><span>Pesanan</span><strong>1</strong><a href="/admin/pesanan">Kelola pesanan</a></article><article class="stat-card"><span>Pembayaran</span><strong>1</strong><a href="/admin/pembayaran">Review pembayaran</a></article><article class="stat-card"><span>Konsumen</span><strong>1</strong><a href="/admin/konsumen">Lihat konsumen</a></article><article class="stat-card"><span>MoU</span><strong>0</strong><a href="/admin/mou">Kelola MoU</a></article></div>`,
+    '/admin/paket': `<section class="page-heading"><span class="eyebrow">Demo admin</span><h1>Kelola paket</h1></section><div class="form-card"><div class="notice">Tampilan demo daftar paket. Perubahan paket hanya tersedia pada backend Laravel.</div><div class="admin-list"><div class="admin-item"><summary>Paket Wisata Sidoarjo</summary></div><div class="admin-item"><summary>Paket Wisata Dieng</summary></div><div class="admin-item"><summary>Jelajah Lombok</summary></div></div><button class="button" type="button" data-demo-action>Simulasi tambah paket</button><div class="alert alert-success" data-demo-action-message role="status" hidden></div></div>`,
+    '/admin/wisata': `<section class="page-heading"><span class="eyebrow">Demo admin</span><h1>Kelola wisata</h1></section><div class="form-card"><div class="notice">Tampilan demo destinasi wisata. Pengelolaan data dilakukan oleh backend Laravel.</div><div class="admin-list"><div class="admin-item"><summary>Sidoarjo</summary></div><div class="admin-item"><summary>Dieng</summary></div><div class="admin-item"><summary>Lombok</summary></div></div><button class="button" type="button" data-demo-action>Simulasi tambah wisata</button><div class="alert alert-success" data-demo-action-message role="status" hidden></div></div>`,
+    '/admin/pesanan': `<section class="page-heading"><span class="eyebrow">Demo admin</span><h1>Kelola pesanan</h1></section><div class="table-wrap"><table><thead><tr><th>Invoice</th><th>Pelanggan</th><th>Status</th><th>Aksi</th></tr></thead><tbody><tr><td>INV-DEMO-001</td><td>Pelanggan Demo</td><td><span class="badge">Menunggu pembayaran</span></td><td><a class="text-link" href="/invoice/1">Buka demo</a></td></tr></tbody></table></div>`,
+    '/admin/pembayaran': `<section class="page-heading"><span class="eyebrow">Demo admin</span><h1>Kelola pembayaran</h1></section><div class="form-card"><div class="notice">Data pembayaran nyata tidak tersedia pada situs statis Vercel.</div><div class="payment-review"><div><strong>INV-DEMO-001</strong><small>Pelanggan Demo · Rp 1.343.001</small></div><a class="button button-light" href="/invoice/1">Lihat simulasi</a></div></div>`,
+    '/admin/konsumen': `<section class="page-heading"><span class="eyebrow">Demo admin</span><h1>Kelola konsumen</h1></section><div class="form-card"><div class="notice">Daftar konsumen hanya tersedia pada backend Laravel dengan autentikasi admin.</div><div class="admin-item"><summary>Pelanggan Demo · customer@demo.test</summary></div></div>`,
+    '/admin/mou': `<section class="page-heading"><span class="eyebrow">Demo admin</span><h1>Kelola MoU</h1></section><div class="form-card"><div class="notice">Belum ada pengajuan MoU pada data demo. Pengajuan nyata tersedia pada backend Laravel.</div><a class="button" href="/mou">Buka simulasi MoU</a></div>`,
+    '/admin/pengaturan': `<section class="page-heading"><span class="eyebrow">Demo admin</span><h1>Pengaturan</h1></section><div class="form-card form-stack"><div class="notice">Pengaturan perusahaan dan metode pembayaran merupakan data backend. Situs Vercel tidak menyimpan data atau kredensial.</div><label>Nama perusahaan<input type="text" value="PT. Innes Arsen Wisata" disabled></label><button class="button" type="button" data-demo-action>Simpan simulasi</button><div class="alert alert-success" data-demo-action-message role="status" hidden></div></div>`,
 };
 
 for (const [, href, label] of routes) {
-    await writeFile(path.join(dist, href === '/' ? 'index.html' : `${href.slice(1)}.html`), page(label, href, pageBodies[href] ?? pageBodies['/']));
+    const relativePath = href === '/' ? 'index.html' : `${href.slice(1)}.html`;
+    const outputPath = path.join(dist, relativePath);
+    await mkdir(path.dirname(outputPath), { recursive: true });
+    await writeFile(outputPath, page(label, href, pageBodies[href] ?? pageBodies['/']));
 }
 
 await writeFile(
