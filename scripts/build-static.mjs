@@ -206,10 +206,31 @@ const pageBodies = {
     '/profil': `<section class="page-heading"><span class="eyebrow">Profil perusahaan</span><h1>PT. Innes Arsen Wisata</h1></section><div class="profile-detail"><article class="profile-story"><h2>Mitra perjalanan Anda untuk menjelajahi destinasi pilihan di Indonesia.</h2><p>Kami melayani rencana perjalanan domestik, study tour, perjalanan grup, dan perjalanan berorientasi budaya serta kuliner.</p><a class="button" href="/destinasi">Lihat paket wisata</a></article><aside class="profile-contact"><h2>Informasi layanan</h2><div><strong>PT. Innes Arsen Wisata</strong><p>Paket wisata domestik dan perjalanan grup.</p></div></aside></div>`,
     '/advertorial': `<section class="editorial-heading"><span class="eyebrow">Advertorial</span><h1>Rekomendasi perjalanan bersama Innes Arsen Wisata</h1><p>Pilih paket yang sesuai waktu, jumlah peserta, destinasi, dan anggaran perjalanan.</p></section><div class="editorial-cta"><div><h2>Rencanakan perjalanan bersama tim kami</h2><p>Sesuaikan jadwal dan kebutuhan rombongan melalui halaman destinasi.</p></div><a class="button" href="/destinasi">Lihat Destinasi</a></div>`,
     '/berita': `<section class="editorial-heading"><span class="eyebrow">Berita</span><h1>Kabar dan panduan perjalanan</h1></section><div class="news-list"><article class="news-item"><span class="news-label">Panduan</span><h3>Periksa rincian paket sebelum memesan</h3><p>Pastikan jadwal, peserta, fasilitas, dan ketentuan sesuai kebutuhan.</p></article><article class="news-item"><span class="news-label">Informasi</span><h3>Persiapan sebelum berwisata</h3><p>Periksa cuaca, dokumen, kebutuhan kesehatan, dan perlengkapan perjalanan.</p></article><article class="news-item"><span class="news-label">Layanan</span><h3>Konfirmasi pemesanan</h3><p>Pastikan rincian pesanan telah dikonfirmasi sebelum pembayaran.</p></article></div>`,
+    '/masuk': `<section class="auth-wrap">
+        <div class="auth-intro">
+            <span class="eyebrow">Selamat datang kembali</span>
+            <h1>Masuk ke akun Anda.</h1>
+            <p>Lihat status pesanan, lanjutkan pembayaran, atau pantau pengajuan kerja sama Anda.</p>
+        </div>
+        <form class="form-card form-stack" action="#" onsubmit="event.preventDefault(); return false;">
+            <h2>Masuk</h2>
+            <div class="notice" role="note">Versi statis Vercel ini hanya menampilkan demo. Autentikasi penuh, login akun, dan akses dashboard berjalan di backend Laravel.</div>
+            <label>Email<input type="email" name="email" autocomplete="email" placeholder="nama@email.com" required></label>
+            <label>Kata sandi<input type="password" name="password" autocomplete="current-password" placeholder="Masukkan kata sandi" required></label>
+            <label class="check-row"><input type="checkbox" name="remember" value="1"> Ingat saya</label>
+            <button class="button button-block" type="submit">Masuk ke akun</button>
+            <p class="form-foot">Belum punya akun? <a href="/destinasi">Jelajahi paket wisata</a></p>
+        </form>
+    </section>`,
 };
 
 for (const [, href, label] of routes) {
     await writeFile(path.join(dist, href === '/' ? 'index.html' : `${href.slice(1)}.html`), page(label, href, pageBodies[href] ?? pageBodies['/']));
 }
+
+await writeFile(
+    path.join(dist, 'masuk.html'),
+    page('Masuk', '/masuk', pageBodies['/masuk']),
+);
 
 console.log(`Static site generated in ${dist}`);

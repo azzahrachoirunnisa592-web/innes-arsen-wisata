@@ -6,6 +6,10 @@
   "trailingSlash": false,
   "rewrites": [
     {
+      "source": "/masuk",
+      "destination": "/masuk.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
