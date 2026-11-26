@@ -9,7 +9,7 @@
     { "source": "/login", "destination": "/login.html" },
     { "source": "/daftar", "destination": "/daftar.html" },
     { "source": "/paket", "destination": "/paket.html" },
-    { "source": "/paket/:slug", "destination": "/destinasi.html" },
+    { "source": "/paket/:slug", "destination": "/paket/:slug.html" },
     { "source": "/artikel/:slug", "destination": "/berita.html" },
     { "source": "/dashboard", "destination": "/dashboard.html" },
     { "source": "/mou", "destination": "/mou.html" },

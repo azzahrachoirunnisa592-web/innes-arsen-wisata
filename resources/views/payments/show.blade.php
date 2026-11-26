@@ -5,7 +5,7 @@
 <section class="page-heading"><span class="eyebrow">Tagihan perjalanan</span><h1>Instruksi pembayaran</h1><p>Invoice {{ $invoice->invoice_number }} · Status <span class="badge" data-booking-status>{{ $invoice->booking->status === 'confirmed' ? 'Terkonfirmasi' : str_replace('_', ' ', $invoice->booking->status) }}</span></p></section>
 <div class="payment-layout">
     <section class="panel">
-        <h2>Ringkasan pesanan</h2><div class="summary-row"><span>Paket wisata</span><strong>{{ $invoice->booking->paket->title }}</strong></div>
+        <h2>Ringkasan pesanan</h2><div class="summary-row"><span>Paket wisata</span><strong><a href="{{ route('packages.show', $invoice->booking->paket) }}">{{ $invoice->booking->paket->title }}</a></strong></div>
         <div class="summary-row"><span>Keberangkatan</span><strong>{{ $invoice->booking->departure_date->format('d M Y') }}</strong></div>
         <div class="summary-row"><span>Jumlah peserta</span><strong>{{ $invoice->booking->travelers }} orang</strong></div>
         <div class="summary-row summary-total"><span>Total tagihan</span><strong>Rp {{ number_format($invoice->amount, 0, ',', '.') }}</strong></div>

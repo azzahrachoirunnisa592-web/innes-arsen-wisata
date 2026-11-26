@@ -4,7 +4,7 @@
 @include('admin._nav')
 <section class="page-heading"><span class="eyebrow">Layanan pelanggan</span><h1>Pesanan & pembayaran</h1><p>Tinjau permintaan, tetapkan nominal hasil negosiasi, dan verifikasi bukti transfer.</p></section>
 <div class="admin-list">
-@forelse($bookings as $booking)<details class="admin-item" @if($loop->first) open @endif>
+@forelse($bookings as $booking)<details id="booking-{{ $booking->id }}" class="admin-item" @if($loop->first) open @endif>
     <summary><span><strong>{{ $booking->invoice?->invoice_number }} · {{ $booking->paket->title }}</strong><small>{{ $booking->user->name }} · {{ $booking->departure_date->format('d M Y') }} · {{ $booking->travelers }} peserta</small></span><span class="badge">{{ str_replace('_', ' ', $booking->status) }}</span></summary>
     <div class="admin-item-content"><div class="summary-row"><span>Email / telepon</span><strong>{{ $booking->user->email }} · {{ $booking->user->phone ?: '—' }}</strong></div><div class="summary-row"><span>Nilai paket awal</span><strong>Rp {{ number_format($booking->proposed_price, 0, ',', '.') }}</strong></div><div class="summary-row"><span>Catatan konsumen</span><strong>{{ $booking->customer_notes ?: '—' }}</strong></div>
         @if(in_array($booking->status, ['pending_negotiation', 'awaiting_payment'], true))

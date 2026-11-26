@@ -12,7 +12,7 @@
 </div>
 <section class="section"><div class="section-heading"><h2>Pesanan terbaru</h2><a class="text-link" href="{{ route('admin.bookings.index') }}">Semua pesanan →</a></div>
     <div class="table-wrap"><table><thead><tr><th>Invoice</th><th>Konsumen</th><th>Paket</th><th>Keberangkatan</th><th>Status</th></tr></thead><tbody>
-    @forelse($recentBookings as $booking)<tr><td>{{ $booking->invoice?->invoice_number }}</td><td>{{ $booking->user->name }}</td><td>{{ $booking->paket->title }}</td><td>{{ $booking->departure_date->format('d M Y') }}</td><td><span class="badge">{{ str_replace('_', ' ', $booking->status) }}</span></td></tr>
+    @forelse($recentBookings as $booking)<tr><td><a class="text-link" href="{{ route('admin.bookings.index') }}#booking-{{ $booking->id }}">{{ $booking->invoice?->invoice_number }}</a></td><td>{{ $booking->user->name }}</td><td><a class="text-link" href="{{ route('packages.show', $booking->paket) }}">{{ $booking->paket->title }}</a></td><td>{{ $booking->departure_date->format('d M Y') }}</td><td><a class="badge" href="{{ route('admin.bookings.index') }}#booking-{{ $booking->id }}">{{ str_replace('_', ' ', $booking->status) }}</a></td></tr>
     @empty<tr><td colspan="5" class="empty-cell">Belum ada pesanan.</td></tr>@endforelse
     </tbody></table></div>
 </section>

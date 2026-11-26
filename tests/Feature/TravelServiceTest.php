@@ -189,6 +189,11 @@ class TravelServiceTest extends TestCase
             'amount' => 3000000,
             'status' => 'pending',
         ]);
+        $this->actingAs($customer)->get(route('customer.dashboard'))
+            ->assertOk()
+            ->assertSee(route('packages.show', $paket), false)
+            ->assertSee(route('invoices.show', $booking->invoice), false)
+            ->assertSee('pending negotiation');
     }
 
     public function test_package_recommendations_match_customer_interests_and_budget(): void
@@ -325,6 +330,7 @@ class TravelServiceTest extends TestCase
             ->assertOk()
             ->assertSee('images/qris-dana.png')
             ->assertSee('DANA QR')
+            ->assertSee(route('packages.show', $paket), false)
             ->assertSee('kode profil DANA');
 
         $this->actingAs($customer)->post(route('payments.submit', $invoice), [
