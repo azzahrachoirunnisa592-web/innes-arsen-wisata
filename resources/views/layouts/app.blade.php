@@ -40,6 +40,7 @@
                         <a href="{{ route('admin.settings.index') }}">Pengaturan</a>
                     @else
                         <a href="{{ route('customer.dashboard') }}">Pesanan saya</a>
+                        <a href="{{ route('customer.profile.edit') }}">Profil saya</a>
                         <a href="{{ route('mous.index') }}">Kerja sama MoU</a>
                     @endif
                     <span class="nav-user">{{ auth()->user()->name }}</span>

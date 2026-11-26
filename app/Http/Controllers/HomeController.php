@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CompanyProfile;
+use App\Models\EditorialArticle;
 use App\Models\ManagementMember;
 use App\Models\Paket;
 use App\Models\Wisata;
@@ -36,18 +37,15 @@ class HomeController extends Controller
 
     public function index(): View
     {
-        $editorial = config('editorial');
-
         return view('home', [
             'profile' => CompanyProfile::first(),
             'managers' => ManagementMember::orderBy('sort_order')->get(),
             'packages' => Paket::with('wisata')->where('published', true)->latest()->take(6)->get(),
-            'articles' => collect([
-                $editorial['jelajah']['articles'][0],
-                $editorial['budaya']['articles'][0],
-                $editorial['kuliner']['articles'][0],
-            ])->values(),
-            'latestNews' => $editorial['berita']['articles'],
+            'articles' => collect(['jelajah', 'budaya', 'kuliner'])
+                ->map(fn (string $section) => EditorialArticle::publicForSection($section)->first())
+                ->filter()
+                ->values(),
+            'latestNews' => EditorialArticle::publicForSection('berita')->take(3),
             'heroSlides' => [
                 [
                     'title' => 'Jelajahi keindahan Indonesia bersama kami.',

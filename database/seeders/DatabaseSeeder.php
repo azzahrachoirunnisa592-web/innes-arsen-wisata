@@ -15,6 +15,8 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
+        $this->call(EditorialArticleSeeder::class);
+
         CompanyProfile::firstOrCreate(
             ['name' => 'PT. Innes Arsen Wisata'],
             [

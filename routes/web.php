@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\CustomerProfileController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\EditorialController;
 use App\Http\Controllers\HomeController;
@@ -37,6 +38,8 @@ Route::get('/dokumen/mou/{mou}/{kind}', [DocumentController::class, 'mouFile'])-
 
 Route::middleware(['auth', 'role:customer'])->group(function () {
     Route::get('/dashboard', [BookingController::class, 'index'])->name('customer.dashboard');
+    Route::get('/akun', [CustomerProfileController::class, 'edit'])->name('customer.profile.edit');
+    Route::put('/akun', [CustomerProfileController::class, 'update'])->name('customer.profile.update');
     Route::post('/paket/{paket:slug}/pesan', [BookingController::class, 'store'])->name('bookings.store');
     Route::get('/invoice/{invoice}', [PaymentController::class, 'show'])->name('invoices.show');
     Route::post('/invoice/{invoice}/pembayaran', [PaymentController::class, 'submit'])->name('payments.submit');
@@ -49,6 +52,10 @@ Route::middleware(['auth', 'role:customer'])->group(function () {
 Route::prefix('admin')->name('admin.')->middleware('admin')->group(function () {
     Route::get('/', [AdminController::class, 'dashboard'])->name('dashboard');
     Route::get('/paket', [AdminController::class, 'packages'])->name('packages.index');
+    Route::get('/konten', [AdminController::class, 'editorial'])->name('editorial.index');
+    Route::post('/konten', [AdminController::class, 'storeEditorial'])->name('editorial.store');
+    Route::put('/konten/{article}', [AdminController::class, 'updateEditorial'])->name('editorial.update');
+    Route::delete('/konten/{article}', [AdminController::class, 'deleteEditorial'])->name('editorial.delete');
     Route::post('/paket', [AdminController::class, 'storePackage'])->name('packages.store');
     Route::put('/paket/{paket}', [AdminController::class, 'updatePackage'])->name('packages.update');
     Route::delete('/paket/{paket}', [AdminController::class, 'deletePackage'])->name('packages.delete');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Booking;
 use App\Models\CompanyGalleryImage;
 use App\Models\CompanyProfile;
+use App\Models\EditorialArticle;
 use App\Models\ManagementMember;
 use App\Models\Mou;
 use App\Models\Paket;
@@ -45,6 +46,35 @@ class AdminController extends Controller
             'packages' => Paket::with('wisata')->latest()->get(),
             'wisatas' => Wisata::orderBy('name')->get(),
         ]);
+    }
+
+    public function editorial(): View
+    {
+        return view('admin.editorial', [
+            'articles' => EditorialArticle::latest()->get(),
+            'sections' => config('editorial'),
+        ]);
+    }
+
+    public function storeEditorial(Request $request): RedirectResponse
+    {
+        EditorialArticle::create($this->validatedEditorialArticle($request));
+
+        return back()->with('success', 'Konten berhasil ditambahkan.');
+    }
+
+    public function updateEditorial(Request $request, EditorialArticle $article): RedirectResponse
+    {
+        $article->update($this->validatedEditorialArticle($request, $article));
+
+        return back()->with('success', 'Konten berhasil diperbarui.');
+    }
+
+    public function deleteEditorial(EditorialArticle $article): RedirectResponse
+    {
+        $article->delete();
+
+        return back()->with('success', 'Konten berhasil dihapus.');
     }
 
     public function storePackage(Request $request): RedirectResponse
@@ -399,6 +429,31 @@ class AdminController extends Controller
             'excludes' => ['nullable', 'string', 'max:3000'],
         ]);
         $data['published'] = $request->boolean('published');
+
+        return $data;
+    }
+
+    private function validatedEditorialArticle(Request $request, ?EditorialArticle $article = null): array
+    {
+        $slugRule = Rule::unique('editorial_articles', 'slug');
+        if ($article) {
+            $slugRule->ignore($article->id);
+        }
+
+        $data = $request->validate([
+            'section' => ['required', Rule::in(array_keys(config('editorial')))],
+            'slug' => ['required', 'string', 'max:180', 'regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/', $slugRule],
+            'title' => ['required', 'string', 'max:180'],
+            'summary' => ['required', 'string', 'max:500'],
+            'image' => ['required', 'url', 'max:2048'],
+            'alt' => ['required', 'string', 'max:255'],
+            'body' => ['required', 'string', 'max:30000'],
+        ]);
+        $data['body'] = array_values(array_filter(
+            preg_split('/\\R\\s*\\R/', trim($data['body'])) ?: [],
+            fn (string $paragraph): bool => trim($paragraph) !== '',
+        ));
+        $data['is_published'] = $request->boolean('is_published');
 
         return $data;
     }

@@ -2,10 +2,14 @@
 
 namespace Tests\Feature;
 
+use Database\Seeders\EditorialArticleSeeder;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class PublicNavigationTest extends TestCase
 {
+    use RefreshDatabase;
+
     public function test_company_profile_details_and_instagram_link_are_configured(): void
     {
         $profile = config('profile');
@@ -27,6 +31,8 @@ class PublicNavigationTest extends TestCase
 
     public function test_editorial_navigation_and_article_pages_are_available(): void
     {
+        $this->seed(EditorialArticleSeeder::class);
+
         $this->get(route('editorial.explore'))->assertOk()->assertSee('Jelajah alam dan petualangan Indonesia');
         $this->get(route('editorial.culture'))->assertOk()->assertSee('Cerita budaya dan sejarah Nusantara');
         $this->get(route('editorial.culinary'))->assertOk()->assertSee('Menjelajah rasa khas daerah');

@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Models\Booking;
+use App\Models\EditorialArticle;
 use App\Models\Invoice;
 use App\Models\Paket;
 use App\Models\PaymentMethod;
@@ -11,6 +12,7 @@ use App\Models\Wisata;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Hash;
 use Tests\TestCase;
 
 class TravelServiceTest extends TestCase
@@ -75,6 +77,80 @@ class TravelServiceTest extends TestCase
 
         $response->assertRedirect(route('customer.dashboard'));
         $this->assertDatabaseHas('users', ['email' => 'pelanggan@example.test', 'role' => 'customer']);
+    }
+
+    public function test_customer_can_update_profile_and_change_password(): void
+    {
+        $customer = User::factory()->create(['role' => 'customer', 'password' => 'password-lama']);
+
+        $this->actingAs($customer)
+            ->get(route('customer.profile.edit'))
+            ->assertOk()
+            ->assertSee('Profil saya');
+
+        $this->put(route('customer.profile.update'), [
+            'name' => 'Nama Baru',
+            'email' => $customer->email,
+            'phone' => '08123456789',
+            'current_password' => 'password-lama',
+            'password' => 'password-baru',
+            'password_confirmation' => 'password-baru',
+        ])->assertRedirect(route('customer.profile.edit'));
+
+        $this->assertDatabaseHas('users', [
+            'id' => $customer->id,
+            'name' => 'Nama Baru',
+            'phone' => '08123456789',
+        ]);
+        $this->assertTrue(Hash::check('password-baru', $customer->fresh()->password));
+    }
+
+    public function test_customer_profile_requires_current_password_to_change_password(): void
+    {
+        $customer = User::factory()->create(['role' => 'customer']);
+
+        $this->actingAs($customer)->put(route('customer.profile.update'), [
+            'name' => $customer->name,
+            'email' => $customer->email,
+            'password' => 'password-baru',
+            'password_confirmation' => 'password-baru',
+        ])->assertSessionHasErrors('current_password');
+    }
+
+    public function test_admin_can_manage_database_editorial_content(): void
+    {
+        $admin = User::factory()->create(['role' => 'admin']);
+        $content = [
+            'section' => 'berita',
+            'slug' => 'informasi-layanan-baru',
+            'title' => 'Informasi layanan baru',
+            'summary' => 'Ringkasan informasi terbaru.',
+            'image' => 'https://example.test/images/berita.jpg',
+            'alt' => 'Ilustrasi berita',
+            'body' => "Paragraf pertama.\n\nParagraf kedua.",
+            'is_published' => '1',
+        ];
+
+        $this->actingAs($admin)->get(route('admin.editorial.index'))->assertOk();
+        $this->actingAs($admin)->post(route('admin.editorial.store'), $content)->assertRedirect();
+
+        $article = EditorialArticle::where('slug', $content['slug'])->firstOrFail();
+        $this->assertSame(['Paragraf pertama.', 'Paragraf kedua.'], $article->body);
+        $this->get(route('editorial.show', $article->slug))->assertOk()->assertSee($article->title);
+
+        $this->actingAs($admin)->put(route('admin.editorial.update', $article), [
+            ...$content,
+            'is_published' => '0',
+        ])->assertRedirect();
+
+        $this->assertDatabaseHas('editorial_articles', [
+            'id' => $article->id,
+            'is_published' => false,
+        ]);
+        $this->get(route('editorial.show', $article->slug))->assertNotFound();
+
+        $this->actingAs($admin)->delete(route('admin.editorial.delete', $article))->assertRedirect();
+        $this->assertDatabaseMissing('editorial_articles', ['id' => $article->id]);
     }
 
     public function test_customer_can_book_published_package_and_invoice_is_created(): void
@@ -184,6 +260,7 @@ class TravelServiceTest extends TestCase
         foreach ([
             'admin.dashboard',
             'admin.packages.index',
+            'admin.editorial.index',
             'admin.destinations.index',
             'admin.bookings.index',
             'admin.customers.index',

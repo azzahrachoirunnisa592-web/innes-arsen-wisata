@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\EditorialArticle;
 use Illuminate\View\View;
 
 class EditorialController extends Controller
@@ -33,16 +34,15 @@ class EditorialController extends Controller
 
     public function article(string $slug): View
     {
-        foreach (config('editorial') as $key => $section) {
-            foreach ($section['articles'] as $article) {
-                if ($article['slug'] === $slug) {
-                    return view('editorial.show', [
-                        'article' => $article,
-                        'section' => $section,
-                        'sectionKey' => $key,
-                    ]);
-                }
-            }
+        $storedArticle = EditorialArticle::where('slug', $slug)->first();
+        if ($storedArticle) {
+            abort_unless($storedArticle->is_published, 404);
+
+            return view('editorial.show', [
+                'article' => $storedArticle->contentArray(),
+                'section' => config("editorial.{$storedArticle->section}"),
+                'sectionKey' => $storedArticle->section,
+            ]);
         }
 
         abort(404);
@@ -51,10 +51,11 @@ class EditorialController extends Controller
     private function section(string $key): View
     {
         $section = config("editorial.{$key}");
+        abort_unless($section, 404);
 
         return view('editorial.index', [
             'section' => $section,
-            'articles' => $section['articles'],
+            'articles' => EditorialArticle::publicForSection($key),
         ]);
     }
 }
